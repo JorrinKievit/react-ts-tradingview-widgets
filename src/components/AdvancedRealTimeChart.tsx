@@ -35,6 +35,7 @@ export type AdvancedRealTimeChartProps = {
   hotlist?: boolean;
   calendar?: boolean;
   container_id?: string;
+  studies?: string[];
 
   children?: never;
 };
@@ -52,7 +53,7 @@ const AdvancedRealTimeChart: React.FC<AdvancedRealTimeChartProps> = ({
   theme = "light",
   style = "1",
   locale = "en",
-  toolbar_bg = "f1f3f6",
+  toolbar_bg = "#f1f3f6",
   enable_publishing = false,
   hide_top_toolbar = false,
   hide_legend = false,
@@ -64,6 +65,7 @@ const AdvancedRealTimeChart: React.FC<AdvancedRealTimeChartProps> = ({
   hotlist = false,
   calendar = false,
   container_id = "advanced-chart-widget-container",
+  studies = undefined,
   ...props
 }) => {
   const ref: { current: HTMLDivElement | null } = createRef();
@@ -100,6 +102,7 @@ const AdvancedRealTimeChart: React.FC<AdvancedRealTimeChartProps> = ({
             hotlist,
             calendar,
             container_id,
+            studies,
             ...props,
           });
         }
@@ -137,6 +140,7 @@ const AdvancedRealTimeChart: React.FC<AdvancedRealTimeChartProps> = ({
     hotlist,
     calendar,
     container_id,
+    studies,
   ]);
   return <div id={container_id} ref={ref} />;
 };

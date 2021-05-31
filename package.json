@@ -1,12 +1,11 @@
 {
-  "name": "react-tradingview-widgets",
+  "name": "react-ts-tradingview-widgets",
   "version": "1.0.0",
-  "description": "This is a React component library for TradingView Widgets",
+  "description": "This is a React component library for TradingView Widgets. TypeScript is fully supported for every component!",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c",
-    "build_test": "tsc --build \"./tsconfig.json\"",
     "start": "rollup -c -w"
   },
   "repository": {
@@ -16,7 +15,8 @@
   "keywords": [
     "TradingView",
     "React",
-    "Widgets"
+    "Widgets",
+    "TypeScript"
   ],
   "author": "JorrinKievit",
   "license": "ISC",
