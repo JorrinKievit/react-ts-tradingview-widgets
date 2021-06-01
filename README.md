@@ -1,6 +1,6 @@
 # react-ts-tradingview-widgets
 
-This official documentation for react-ts-tradingview-widgets can be found [here](https://jorrinkievit.github.io/react-ts-tradingview-widgets/). This library brings fully TypeScript supported components for all TradingView widgets found [here](https://www.tradingview.com/widget/).
+The official documentation for react-ts-tradingview-widgets can be found [here](https://jorrinkievit.github.io/react-ts-tradingview-widgets/). This library brings fully TypeScript supported components for all TradingView widgets found [here](https://www.tradingview.com/widget/).
 
 ## Getting Started
 
