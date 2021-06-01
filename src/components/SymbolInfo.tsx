@@ -5,6 +5,7 @@ import { ColorTheme } from "../index";
 export type SymbolInfoProps = {
   symbol?: string;
   width?: string | number;
+  autosize?: boolean;
   locale?: string;
   colorTheme?: ColorTheme;
   isTransparent?: boolean;
@@ -16,6 +17,7 @@ export type SymbolInfoProps = {
 const SymbolInfo: React.FC<SymbolInfoProps> = ({
   symbol = "NASDAQ:AAPL",
   width = 1000,
+  autosize = false,
   locale = "en",
   colorTheme = "light",
   isTransparent = false,
@@ -25,7 +27,7 @@ const SymbolInfo: React.FC<SymbolInfoProps> = ({
   return setDivRef(
     {
       symbol,
-      width,
+      ...(!autosize ? { width } : { width: "100%" }),
       locale,
       colorTheme,
       isTransparent,

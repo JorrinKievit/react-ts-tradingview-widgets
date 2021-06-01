@@ -2,8 +2,8 @@
 module.exports = {
   title: "react-ts-tradingview-widgets",
   tagline: "This is a React component library for TradingView Widgets.",
-  url: "https://your-docusaurus-test-site.com",
-  baseUrl: "/",
+  url: "https://jorrinkievit.github.io",
+  baseUrl: "/react-ts-tradingview-widgets/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",

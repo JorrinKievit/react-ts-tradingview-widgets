@@ -1,6 +1,6 @@
 {
   "name": "react-ts-tradingview-widgets",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "This is a React component library for TradingView Widgets. TypeScript is fully supported for every component!",
   "main": "dist/index.js",
   "scripts": {
@@ -10,20 +10,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JorrinKievit/react-tradingview-widgets.git"
+    "url": "git+https://github.com/JorrinKievit/react-ts-tradingview-widgets.git"
   },
   "keywords": [
     "TradingView",
     "React",
     "Widgets",
-    "TypeScript"
+    "TypeScript",
+    "Embed"
   ],
   "author": "JorrinKievit",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JorrinKievit/react-tradingview-widgets/issues"
+    "url": "https://github.com/JorrinKievit/react-ts-tradingview-widgets/issues"
   },
-  "homepage": "https://github.com/JorrinKievit/react-tradingview-widgets#readme",
+  "homepage": "https://github.com/JorrinKievit/react-ts-tradingview-widgets#readme",
   "devDependencies": {
     "@babel/cli": "^7.14.3",
     "@babel/core": "^7.14.3",

@@ -6956,10 +6956,10 @@
     "use-composed-ref" "^1.0.0"
     "use-latest" "^1.0.0"
 
-"react-ts-tradingview-widgets@^1.0.0":
-  "integrity" "sha512-PUvVvwz8hbkEktSmJp+/YjwCtxHotE2qBYFOK77vt9o2raWfid5Ol62WvSUmVOS8DsKSFzLvVuB0XFcRQ6xdlQ=="
-  "resolved" "https://registry.npmjs.org/react-ts-tradingview-widgets/-/react-ts-tradingview-widgets-1.0.0.tgz"
-  "version" "1.0.0"
+"react-ts-tradingview-widgets@^1.0.1":
+  "integrity" "sha512-jQBMICcsfVaqFhED+kTDyBEEfxAIuZt5UhVyKaRaEgZJv8BhDQntWbDt6q3i6a7v8KK/uSRi2PBLRyqpLZwiqw=="
+  "resolved" "https://registry.npmjs.org/react-ts-tradingview-widgets/-/react-ts-tradingview-widgets-1.0.1.tgz"
+  "version" "1.0.1"
 
 "react@*", "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^15.0.2 || ^16.0.0 || ^17.0.0", "react@^16.13.1 || ^17.0.0", "react@^16.3.0 || ^17.0.0", "react@^16.8.0 || ^17.0.0", "react@^16.8.4 || ^17.0.0", "react@^17.0.0 || ^16.3.0 || ^15.5.4", "react@^17.0.1", "react@^17.0.2", "react@>= 16.8.0 < 18.0.0", "react@>=0.14.9", "react@>=15", "react@>=16.3.0", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="

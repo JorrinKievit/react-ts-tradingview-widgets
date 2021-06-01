@@ -7,7 +7,7 @@ export type CryptoCurrencyMarketProps = {
   height?: string | number;
   autosize?: boolean;
   defaultColumn?: DefaultColumns;
-  screener_type?: string;
+  screener_type?: "crypto_mkt";
   displayCurrency?: "USD" | "BTC";
   colorTheme?: ColorTheme;
   locale?: string;

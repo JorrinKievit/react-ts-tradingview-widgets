@@ -3,8 +3,8 @@ import setDivRef from "../setDivRef";
 import { ColorTheme } from "../index";
 
 export type ForexCrossRatesProps = {
-  width?: number | number;
-  height?: number | number;
+  width?: number | string;
+  height?: number | string;
   autosize?: boolean;
   currencies?: string[];
   isTransparent?: boolean;

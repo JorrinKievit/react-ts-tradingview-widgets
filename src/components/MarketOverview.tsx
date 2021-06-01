@@ -2,18 +2,18 @@ import React from "react";
 import setDivRef from "../setDivRef";
 import { ColorTheme, DateRange } from "../index";
 
-export interface MarketOverviewSymbol {
+export type MarketOverviewSymbol = {
   s: string;
   d?: string;
-}
+};
 
-export interface MarketOverviewTab {
+export type MarketOverviewTab = {
   title: string;
   symbols: MarketOverviewSymbol[];
   originalTitle: string;
-}
+};
 
-export interface MarketOverviewProps {
+export type MarketOverviewProps = {
   colorTheme?: ColorTheme;
   dateRange?: DateRange;
   showChart?: boolean;
@@ -34,7 +34,7 @@ export interface MarketOverviewProps {
   tabs?: MarketOverviewTab[];
 
   children?: never;
-}
+};
 
 const defaultTabs: MarketOverviewTab[] = [
   {
