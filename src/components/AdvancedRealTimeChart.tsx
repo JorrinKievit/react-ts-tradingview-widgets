@@ -1,5 +1,6 @@
-import React, { createRef, useEffect } from "react";
+import React from "react";
 import { ColorTheme } from "../index";
+import setDivRef from "../setDivRef";
 
 export type AdvancedRealTimeChartProps = {
   width?: number | string;
@@ -40,15 +41,13 @@ export type AdvancedRealTimeChartProps = {
   children?: never;
 };
 
-declare const TradingView: any;
-
 const AdvancedRealTimeChart: React.FC<AdvancedRealTimeChartProps> = ({
   width = 980,
   height = 610,
   autosize = false,
   symbol = "NASDAQ:AAPL",
-  interval = "D",
-  range = "YTD",
+  interval = "1",
+  range = undefined,
   timezone = "UTC",
   theme = "light",
   style = "1",
@@ -64,85 +63,39 @@ const AdvancedRealTimeChart: React.FC<AdvancedRealTimeChartProps> = ({
   details = false,
   hotlist = false,
   calendar = false,
-  container_id = "advanced-chart-widget-container",
+  container_id = `advanced-chart-widget-container_${Math.random()}`,
   studies = undefined,
   ...props
 }) => {
-  const ref: { current: HTMLDivElement | null } = createRef();
-
-  useEffect(() => {
-    let refValue: any;
-
-    if (ref.current) {
-      const script = document.createElement("script");
-      script.src = "https://s3.tradingview.com/tv.js";
-      script.async = true;
-      script.type = "text/javascript";
-      script.onload = () => {
-        if (typeof TradingView !== undefined) {
-          new TradingView.widget({
-            ...(!autosize ? { width } : { width: "100%" }),
-            ...(!autosize ? { height } : { height: "100%" }),
-            symbol,
-            interval,
-            range,
-            timezone,
-            theme,
-            style,
-            locale,
-            toolbar_bg,
-            enable_publishing,
-            hide_top_toolbar,
-            hide_legend,
-            withdateranges,
-            hide_side_toolbar,
-            allow_symbol_change,
-            save_image,
-            details,
-            hotlist,
-            calendar,
-            container_id,
-            studies,
-            ...props,
-          });
-        }
-      };
-      ref.current.appendChild(script);
-      refValue = ref.current;
-    }
-    return () => {
-      if (refValue) {
-        while (refValue.firstChild) {
-          refValue.removeChild(refValue.firstChild);
-        }
-      }
-    };
-  }, [
-    ref,
-    width,
-    height,
-    symbol,
-    interval,
-    range,
-    timezone,
-    theme,
-    style,
-    locale,
-    toolbar_bg,
-    enable_publishing,
-    hide_top_toolbar,
-    hide_legend,
-    withdateranges,
-    hide_side_toolbar,
-    allow_symbol_change,
-    save_image,
-    details,
-    hotlist,
-    calendar,
+  return setDivRef(
+    {
+      ...(!autosize ? { width } : { width: "100%" }),
+      ...(!autosize ? { height } : { height: "100%" }),
+      symbol,
+      ...(!range ? { interval } : { range }),
+      timezone,
+      theme,
+      style,
+      locale,
+      toolbar_bg,
+      enable_publishing,
+      hide_top_toolbar,
+      hide_legend,
+      withdateranges,
+      hide_side_toolbar,
+      allow_symbol_change,
+      save_image,
+      details,
+      hotlist,
+      calendar,
+      container_id,
+      studies,
+      ...props,
+    },
+    "https://s3.tradingview.com/tv.js",
     container_id,
-    studies,
-  ]);
-  return <div id={container_id} ref={ref} />;
+    "Widget"
+  );
 };
 
 export default AdvancedRealTimeChart;

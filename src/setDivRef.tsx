@@ -1,7 +1,14 @@
 import React from "react";
 import { createRef, useEffect } from "react";
 
-const setDivRef = (scriptHTML: any, scriptSRC: string): any => {
+declare const TradingView: any;
+
+const setDivRef = (
+  scriptHTML: any,
+  scriptSRC: string,
+  containerId?: string,
+  type?: "Widget" | "MediumWidget"
+): any => {
   const ref: { current: HTMLDivElement | null } = createRef();
 
   useEffect(() => {
@@ -12,7 +19,21 @@ const setDivRef = (scriptHTML: any, scriptSRC: string): any => {
       script.src = scriptSRC;
       script.async = true;
       script.type = "text/javascript";
-      script.innerHTML = JSON.stringify(scriptHTML);
+      script.onload = () => {
+        if (type === "Widget" || type == "MediumWidget") {
+          if (typeof TradingView !== undefined) {
+            script.innerHTML = JSON.stringify(
+              type === "Widget"
+                ? new TradingView.widget(scriptHTML)
+                : type === "MediumWidget"
+                ? new TradingView.MediumWidget(scriptHTML)
+                : undefined
+            );
+          }
+        } else {
+          script.innerHTML = JSON.stringify(scriptHTML);
+        }
+      };
       ref.current.appendChild(script);
       refValue = ref.current;
     }
@@ -24,7 +45,7 @@ const setDivRef = (scriptHTML: any, scriptSRC: string): any => {
       }
     };
   }, [ref, scriptHTML]);
-  return <div ref={ref} />;
+  return <div ref={ref} id={containerId} />;
 };
 
 export default setDivRef;

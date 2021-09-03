@@ -14,11 +14,12 @@ import { SymbolOverview } from "react-ts-tradingview-widgets";
 <SymbolOverview colorTheme="dark"></SymbolOverview>
 ```
 
-<!-- import { SymbolOverview } from "react-ts-tradingview-widgets";
+import { SymbolOverview } from "react-ts-tradingview-widgets";
+import "../style.css"
 
-<SymbolOverview colorTheme="dark"></SymbolOverview> -->
-
-This component preview is currently not working.
+<div className="height-400">
+  <SymbolOverview colorTheme="dark" autosize></SymbolOverview>
+</div>
 
 ## Used Public types {#public-types}
 

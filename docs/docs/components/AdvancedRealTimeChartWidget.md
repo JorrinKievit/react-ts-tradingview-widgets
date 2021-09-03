@@ -11,14 +11,15 @@ This is the React component for the [Advanced Real-Time Chart Widget](https://ww
 ```
 import { AdvancedRealTimeChart } from "react-ts-tradingview-widgets";
 
-<AdvancedRealTimeChart theme="dark" width={940}></AdvancedRealTimeChart>
+<AdvancedRealTimeChart theme="dark" autosize></AdvancedRealTimeChart>
 ```
 
-Live Preview is currently not working.
+import { AdvancedRealTimeChart} from "react-ts-tradingview-widgets";
+import "../style.css"
 
-<!-- import { AdvancedRealTimeChart} from "react-ts-tradingview-widgets";
-
-<AdvancedRealTimeChart theme="dark" width={940} largeChartUrl></AdvancedRealTimeChart> -->
+<div className="height-400">
+<AdvancedRealTimeChart theme="dark" autosize></AdvancedRealTimeChart>
+</div>
 
 ## Used Private types {#private-types}
 

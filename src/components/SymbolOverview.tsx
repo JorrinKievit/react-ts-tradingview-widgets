@@ -1,5 +1,6 @@
-import React, { createRef, useEffect } from "react";
+import React from "react";
 import { ColorTheme } from "../index";
+import setDivRef from "../setDivRef";
 
 export type SymbolOverviewProps = {
   symbols?: string[][];
@@ -18,8 +19,6 @@ export type SymbolOverviewProps = {
 
   children?: never;
 };
-
-declare const TradingView: any;
 
 const defaultSymbols = [
   ["Apple", "AAPL"],
@@ -40,66 +39,30 @@ const SymbolOverview: React.FC<SymbolOverviewProps> = ({
   underLineColor = "#E3F2FD",
   isTransparent = false,
   autosize = false,
-  container_id = "symbol-overview-widget-container",
+  container_id = `symbol-overview-widget-container_${Math.random()}`,
   ...props
 }) => {
-  const ref: { current: HTMLDivElement | null } = createRef();
-
-  useEffect(() => {
-    let refValue: any;
-
-    if (ref.current) {
-      const script = document.createElement("script");
-      script.src = "https://s3.tradingview.com/tv.js";
-      script.async = true;
-      script.type = "text/javascript";
-      script.onload = () => {
-        if (typeof TradingView !== undefined) {
-          new TradingView.MediumWidget({
-            symbols,
-            chartOnly,
-            ...(!autosize ? { width } : { width: "100%" }),
-            ...(!autosize ? { height } : { height: "100%" }),
-            locale,
-            colorTheme,
-            gridLineColor,
-            trendLineColor,
-            fontColor,
-            underLineColor,
-            isTransparent,
-            autosize,
-            container_id,
-            ...props,
-          });
-        }
-      };
-      ref.current.appendChild(script);
-      refValue = ref.current;
-    }
-    return () => {
-      if (refValue) {
-        while (refValue.firstChild) {
-          refValue.removeChild(refValue.firstChild);
-        }
-      }
-    };
-  }, [
-    ref,
-    symbols,
-    chartOnly,
-    width,
-    height,
-    locale,
-    colorTheme,
-    gridLineColor,
-    trendLineColor,
-    fontColor,
-    underLineColor,
-    isTransparent,
-    autosize,
+  return setDivRef(
+    {
+      symbols,
+      chartOnly,
+      ...(!autosize ? { width } : { width: "100%" }),
+      ...(!autosize ? { height } : { height: "100%" }),
+      locale,
+      colorTheme,
+      gridLineColor,
+      trendLineColor,
+      fontColor,
+      underLineColor,
+      isTransparent,
+      autosize,
+      container_id,
+      ...props,
+    },
+    "https://s3.tradingview.com/tv.js",
     container_id,
-  ]);
-  return <div id={container_id} ref={ref} />;
+    "MediumWidget"
+  );
 };
 
 export default SymbolOverview;
