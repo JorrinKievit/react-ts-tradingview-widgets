@@ -43,8 +43,8 @@ import "../style.css"
 | height              | number/string                     | false    | 610                             | Sets a static height on the component                                                        |
 | autosize            | boolean                           | false    | false                           | Sets the width and height to 100%                                                            |
 | symbol              | string                            | false    | NASDAQ:AAPL                     | Sets the default ticker symbol                                                               |
-| interval            | [_**Interval**_](#private-types)  | false    | D                               | Sets the default interval                                                                    |
-| range               | [_**Range**_](#private-types)     | false    | YTD                             | Sets the default range                                                                       |
+| interval            | [_**Interval**_](#private-types)  | false    | D                               | Sets the default interval, overrides range                                                   |
+| range               | [_**Range**_](#private-types)     | false    | undefined                       | Sets the default range, overrides interval                                                   |
 | timezone            | string                            | false    | UTC                             | Sets the default timezone                                                                    |
 | theme               | [_**ColorTheme**_](#public-types) | false    | light                           | Sets the default theme                                                                       |
 | style               | Style                             | false    | 1                               | Sets the default [style](https://www.tradingview.com/widget/advanced-chart/) (Bars, Candles) |
