@@ -19,9 +19,10 @@ const setDivRef = (
       script.src = scriptSRC;
       script.async = true;
       script.type = "text/javascript";
-      script.onload = () => {
-        if (type === "Widget" || type == "MediumWidget") {
-          if (typeof TradingView !== undefined) {
+
+      if (type === "Widget" || type === "MediumWidget") {
+        if (typeof TradingView !== undefined) {
+          script.onload = () => {
             script.innerHTML = JSON.stringify(
               type === "Widget"
                 ? new TradingView.widget(scriptHTML)
@@ -29,11 +30,11 @@ const setDivRef = (
                 ? new TradingView.MediumWidget(scriptHTML)
                 : undefined
             );
-          }
-        } else {
-          script.innerHTML = JSON.stringify(scriptHTML);
+          };
         }
-      };
+      } else {
+        script.innerHTML = JSON.stringify(scriptHTML);
+      }
       ref.current.appendChild(script);
       refValue = ref.current;
     }
