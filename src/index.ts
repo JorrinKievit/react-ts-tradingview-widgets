@@ -50,10 +50,10 @@ export type ColorTheme = "light" | "dark";
 
 export type DateRange = "1D" | "1M" | "3M" | "12M" | "60M" | "ALL";
 
-export type DefaultColumns =
-  | "overview"
-  | "performance"
-  | "oscillators"
-  | "moving_averages";
-
 export type DisplayMode = "regular" | "compact" | "adaptive";
+
+export type ChartType = "area" | "bars" | "candlesticks";
+
+export type ScalePosition = "no" | "left" | "right";
+
+export type ScaleMode = "Normal" | "Percentage" | "Logarithmic";

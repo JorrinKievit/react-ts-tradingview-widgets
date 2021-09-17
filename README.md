@@ -10,7 +10,7 @@ Get started by running `npm i react-ts-tradingview-widgets` in your project.
 
 A full description of all components can be found on [here](https://jorrinkievit.github.io/react-ts-tradingview-widgets/). This includes properties, default values and examples. For extra information please refer to the official TradingView website: https://www.tradingview.com/widget/
 
-These are all the support widgets:
+These are all the supported widgets:
 
 - Advanced Real-Time Chart Widget
 - Technical Analysis Widget

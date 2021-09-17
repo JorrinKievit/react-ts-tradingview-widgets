@@ -11,6 +11,7 @@ export type MiniChartProps = {
   colorTheme?: ColorTheme;
   trendLineColor?: string;
   underLineColor?: string;
+  underLineBottomColor?: string;
   isTransparent?: boolean;
   autosize?: boolean;
   largeChartUrl?: string;
@@ -25,8 +26,9 @@ const MiniChart: React.FC<MiniChartProps> = ({
   locale = "en",
   dateRange = "12M",
   colorTheme = "light",
-  trendLineColor = "#37a6ef",
-  underLineColor = "#E3F2FD",
+  trendLineColor = "rgba(41, 98, 255, 1)",
+  underLineColor = "rgba(41, 98, 255, 0.3)",
+  underLineBottomColor = "rgba(41, 98, 255, 0)",
   isTransparent = false,
   autosize = false,
   largeChartUrl = undefined,

@@ -17,7 +17,12 @@ export type StockMarketProps = {
     | "TSX"
     | "TSXV"
     | "EGX"
+    | "BER"
+    | "DUS"
     | "FWB"
+    | "HAM"
+    | "HAN"
+    | "MUN"
     | "SWB"
     | "XETR"
     | "BSE"
@@ -26,6 +31,7 @@ export type StockMarketProps = {
     | "MIL"
     | "LUXSE"
     | "NEWCONNECT"
+    | "KRX"
     | "NGM"
     | "BIST"
     | "LSE"
@@ -36,6 +42,7 @@ export type StockMarketProps = {
   largeChartUrl?: string;
   isTransparent?: boolean;
   showSymbolLogo?: boolean;
+  showFloatingTooltip?: boolean;
   width?: string | number;
   height?: string | number;
   autosize?: boolean;
@@ -45,6 +52,8 @@ export type StockMarketProps = {
   scaleFontColor?: string;
   belowLineFillColorGrowing?: string;
   belowLineFillColorFalling?: string;
+  belowLineFillColorGrowingBottom?: string;
+  belowLineFillColorFallingBottom?: string;
   symbolActiveColor?: string;
 
   children?: never;
@@ -59,6 +68,7 @@ const StockMarket: React.FC<StockMarketProps> = ({
   largeChartUrl = undefined,
   isTransparent = false,
   showSymbolLogo = true,
+  showFloatingTooltip = false,
   width = 400,
   height = 600,
   autosize = false,
@@ -68,6 +78,8 @@ const StockMarket: React.FC<StockMarketProps> = ({
   scaleFontColor = "rgba(120, 123, 134, 1)",
   belowLineFillColorGrowing = "rgba(33, 150, 243, 0.12)",
   belowLineFillColorFalling = "rgba(33, 150, 243, 0.12)",
+  belowLineFillColorGrowingBottom = "rgba(41, 98, 255, 0)",
+  belowLineFillColorFallingBottom = "rgba(41, 98, 255, 0)",
   symbolActiveColor = "rgba(33, 150, 243, 0.12)",
   ...props
 }) => {
@@ -83,13 +95,17 @@ const StockMarket: React.FC<StockMarketProps> = ({
       showSymbolLogo,
       ...(!autosize ? { width } : { width: "100%" }),
       ...(!autosize ? { height } : { height: "100%" }),
-      ...(showChart ? { plotLineColorGrowing } : {}),
-      ...(showChart ? { plotLineColorFalling } : {}),
-      ...(showChart ? { gridLineColor } : {}),
-      ...(showChart ? { scaleFontColor } : {}),
-      ...(showChart ? { belowLineFillColorGrowing } : {}),
-      ...(showChart ? { belowLineFillColorFalling } : {}),
-      ...(showChart ? { symbolActiveColor } : {}),
+      ...(showChart && {
+        plotLineColorGrowing,
+        plotLineColorFalling,
+        gridLineColor,
+        scaleFontColor,
+        belowLineFillColorGrowing,
+        belowLineFillColorFalling,
+        belowLineFillColorGrowingBottom,
+        belowLineFillColorFallingBottom,
+        symbolActiveColor,
+      }),
       ...props,
     },
     "https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js"

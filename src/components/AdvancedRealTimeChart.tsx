@@ -26,18 +26,22 @@ export type AdvancedRealTimeChartProps = {
   locale?: string;
   toolbar_bg?: string;
   enable_publishing?: boolean;
+  withdateranges?: boolean;
   hide_top_toolbar?: boolean;
   hide_legend?: boolean;
-  withdateranges?: boolean;
   hide_side_toolbar?: boolean;
   allow_symbol_change?: boolean;
   save_image?: boolean;
   details?: boolean;
   hotlist?: boolean;
   calendar?: boolean;
-  container_id?: string;
+  show_popup_button?: boolean;
+  popup_width?: string;
+  popup_height?: string;
+  watchlist?: string[];
   studies?: string[];
 
+  container_id?: string;
   children?: never;
 };
 
@@ -63,8 +67,12 @@ const AdvancedRealTimeChart: React.FC<AdvancedRealTimeChartProps> = ({
   details = false,
   hotlist = false,
   calendar = false,
-  container_id = `advanced-chart-widget-container_${Math.random()}`,
+  show_popup_button = false,
+  popup_width = "600",
+  popup_height = "400",
+  watchlist = undefined,
   studies = undefined,
+  container_id = `advanced-chart-widget-container_${Math.random()}`,
   ...props
 }) => {
   return setDivRef(
@@ -88,8 +96,14 @@ const AdvancedRealTimeChart: React.FC<AdvancedRealTimeChartProps> = ({
       details,
       hotlist,
       calendar,
-      container_id,
+      ...(show_popup_button && {
+        show_popup_button,
+        popup_width,
+        popup_height,
+      }),
+      watchlist,
       studies,
+      container_id,
       ...props,
     },
     "https://s3.tradingview.com/tv.js",

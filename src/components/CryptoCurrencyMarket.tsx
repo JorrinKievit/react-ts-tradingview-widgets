@@ -1,12 +1,16 @@
 import React from "react";
 import setDivRef from "../setDivRef";
-import { ColorTheme, DefaultColumns } from "../index";
+import { ColorTheme } from "../index";
 
 export type CryptoCurrencyMarketProps = {
   width?: string | number;
   height?: string | number;
   autosize?: boolean;
-  defaultColumn?: DefaultColumns;
+  defaultColumn?:
+    | "overview"
+    | "performance"
+    | "oscillators"
+    | "moving_averages";
   screener_type?: "crypto_mkt";
   displayCurrency?: "USD" | "BTC";
   colorTheme?: ColorTheme;

@@ -1,5 +1,5 @@
 import React from "react";
-import { ColorTheme } from "../index";
+import { ChartType, ColorTheme, ScaleMode, ScalePosition } from "../index";
 import setDivRef from "../setDivRef";
 
 export type SymbolOverviewProps = {
@@ -10,10 +10,30 @@ export type SymbolOverviewProps = {
   locale?: string;
   colorTheme?: ColorTheme;
   gridLineColor?: string;
-  trendLineColor?: string;
   fontColor?: string;
-  underLineColor?: string;
   isTransparent?: boolean;
+  showFloatingTooltip?: boolean;
+  scalePosition?: ScalePosition;
+  scaleMode?: ScaleMode;
+  fontFamily?: string;
+  noTimeScale?: boolean;
+  chartType?: ChartType;
+
+  //area
+  lineColor?: string;
+  bottomColor?: string;
+  topColor?: string;
+
+  //bars & candles
+  upColor?: string;
+  downColor?: string;
+
+  //candles
+  borderUpColor?: string;
+  borderDownColor?: string;
+  wickUpColor?: string;
+  wickDownColor?: string;
+
   autosize?: boolean;
   container_id?: string;
 
@@ -33,11 +53,31 @@ const SymbolOverview: React.FC<SymbolOverviewProps> = ({
   height = 400,
   locale = "en",
   colorTheme = "light",
-  gridLineColor = "#F0F3FA",
-  trendLineColor = "#2196F3",
+  gridLineColor = "rgba(42, 46, 57, 0)",
   fontColor = "#787B86",
-  underLineColor = "#E3F2FD",
   isTransparent = false,
+  showFloatingTooltip = true,
+  scalePosition = "no",
+  scaleMode = "Normal",
+  fontFamily = "Trebuchet MS, sans-serif",
+  noTimeScale = false,
+  chartType = "area",
+
+  //area
+  lineColor = "#2962FF",
+  bottomColor = "rgba(41, 98, 255, 0)",
+  topColor = "rgba(41, 98, 255, 0.3)",
+
+  //bars & candles
+  upColor = "#26a69a",
+  downColor = "#ef5350",
+
+  //candles
+  borderUpColor = "#26a69a",
+  borderDownColor = "#ef5350",
+  wickUpColor = "#26a69a",
+  wickDownColor = "#ef5350",
+
   autosize = false,
   container_id = `symbol-overview-widget-container_${Math.random()}`,
   ...props
@@ -51,10 +91,25 @@ const SymbolOverview: React.FC<SymbolOverviewProps> = ({
       locale,
       colorTheme,
       gridLineColor,
-      trendLineColor,
       fontColor,
-      underLineColor,
       isTransparent,
+      showFloatingTooltip,
+      scalePosition,
+      scaleMode,
+      fontFamily,
+      noTimeScale,
+      chartType,
+      ...(chartType === "area" && { lineColor, bottomColor, topColor }),
+      ...((chartType === "bars" || chartType === "candlesticks") && {
+        upColor,
+        downColor,
+      }),
+      ...(chartType === "candlesticks" && {
+        borderUpColor,
+        borderDownColor,
+        wickUpColor,
+        wickDownColor,
+      }),
       autosize,
       container_id,
       ...props,

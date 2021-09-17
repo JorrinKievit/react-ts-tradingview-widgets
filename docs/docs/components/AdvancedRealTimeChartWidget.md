@@ -57,8 +57,12 @@ import "../style.css"
 | hide_side_toolbar   | boolean                           | false    | false                           | Hide side toolbar                                                                            |
 | allow_symbol_change | boolean                           | false    | true                            | Allow symbol change in chart                                                                 |
 | save_image          | boolean                           | false    | true                            | Get image button                                                                             |
+| show_popup_button   | boolean                           | false    | false                           | Show the popup button to popup the chart in a new window                                     |
+| popup_width         | string                            | false    | 600                             | Sets the default width of the popup                                                          |
+| popup_height        | string                            | false    | 400                             | Sets the default height of the popup                                                         |
 | details             | boolean                           | false    | false                           | Show details sidebar                                                                         |
 | hotlist             | boolean                           | false    | false                           | Show hotlist sidebar                                                                         |
 | calendar            | boolean                           | false    | false                           | Show calendar sidebar                                                                        |
-| container_id        | string                            | false    | advanced-chart-widget-container | Set container_id generated [here](https://www.tradingview.com/widget/advanced-chart/)        |
+| watchlist           | string[]                          | false    | undefined                       | Show watchlist with added symbols                                                            |
 | studies             | string[]                          | false    | undefined                       | Add default indicators to chart                                                              |
+| container_id        | string                            | false    | advanced-chart-widget-container | Set container_id generated [here](https://www.tradingview.com/widget/advanced-chart/)        |

@@ -21,6 +21,7 @@ export type MarketOverviewProps = {
   largeChartUrl?: string;
   isTransparent?: boolean;
   showSymbolLogo?: boolean;
+  showFloatingTooltip?: boolean;
   width?: string | number;
   height?: string | number;
   autosize?: boolean;
@@ -30,6 +31,8 @@ export type MarketOverviewProps = {
   scaleFontColor?: string;
   belowLineFillColorGrowing?: string;
   belowLineFillColorFalling?: string;
+  belowLineFillColorGrowingBottom?: string;
+  belowLineFillColorFallingBottom?: string;
   symbolActiveColor?: string;
   tabs?: MarketOverviewTab[];
 
@@ -161,6 +164,7 @@ const MarketOverview: React.FC<MarketOverviewProps> = ({
   largeChartUrl = undefined,
   isTransparent = false,
   showSymbolLogo = true,
+  showFloatingTooltip = false,
   width = 400,
   height = 660,
   autosize = false,
@@ -170,6 +174,8 @@ const MarketOverview: React.FC<MarketOverviewProps> = ({
   scaleFontColor = "rgba(120, 123, 134, 1)",
   belowLineFillColorGrowing = "rgba(33, 150, 243, 0.12)",
   belowLineFillColorFalling = "rgba(33, 150, 243, 0.12)",
+  belowLineFillColorGrowingBottom = "rgba(41, 98, 255, 0)",
+  belowLineFillColorFallingBottom = "rgba(41, 98, 255, 0)",
   symbolActiveColor = "rgba(33, 150, 243, 0.12)",
   tabs = defaultTabs,
   ...props
@@ -183,15 +189,20 @@ const MarketOverview: React.FC<MarketOverviewProps> = ({
       largeChartUrl,
       isTransparent,
       showSymbolLogo,
+      showFloatingTooltip,
       ...(!autosize ? { width } : { width: "100%" }),
       ...(!autosize ? { height } : { height: "100%" }),
-      ...(showChart ? { plotLineColorGrowing } : {}),
-      ...(showChart ? { plotLineColorFalling } : {}),
-      ...(showChart ? { gridLineColor } : {}),
-      ...(showChart ? { scaleFontColor } : {}),
-      ...(showChart ? { belowLineFillColorGrowing } : {}),
-      ...(showChart ? { belowLineFillColorFalling } : {}),
-      ...(showChart ? { symbolActiveColor } : {}),
+      ...(showChart && {
+        plotLineColorGrowing,
+        plotLineColorFalling,
+        gridLineColor,
+        scaleFontColor,
+        belowLineFillColorGrowing,
+        belowLineFillColorFalling,
+        belowLineFillColorGrowingBottom,
+        belowLineFillColorFallingBottom,
+        symbolActiveColor,
+      }),
       tabs,
       ...props,
     },

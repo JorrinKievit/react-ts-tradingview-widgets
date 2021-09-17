@@ -11,12 +11,12 @@ This is the React component for the [Market Overview Widget](https://www.trading
 ```
 import { MarketOverview } from "react-ts-tradingview-widgets";
 
-<MarketOverview colorTheme="dark" height={400}></MarketOverview>
+<MarketOverview colorTheme="dark" height={400} showFloatingTooltip></MarketOverview>
 ```
 
 import { MarketOverview } from "react-ts-tradingview-widgets";
 
-<MarketOverview colorTheme="dark" height={400}></MarketOverview>
+<MarketOverview colorTheme="dark" height={400} showFloatingTooltip></MarketOverview>
 
 ## Used Public types {#public-types}
 
@@ -29,26 +29,29 @@ import { MarketOverview } from "react-ts-tradingview-widgets";
 
 ## MarketOverview properties
 
-| Property                  | Type                              | Required | Default                  | Description                           |
-| ------------------------- | --------------------------------- | -------- | ------------------------ | ------------------------------------- |
-| colorTheme                | [_**ColorTheme**_](#public-types) | false    | light                    | Sets the default theme                |
-| dateRange                 | [_**DateRange**_](#public-types)  | false    | 12M                      | Default date range of chart           |
-| showChart                 | boolean                           | false    | true                     | Show chart in overview                |
-| locale                    | string                            | false    | en                       | Sets the default locale               |
-| largeChartUrl             | string                            | false    | undefined                | Make widget redirect to larger chart  |
-| isTransparent             | boolean                           | false    | false                    | Transparent background for component  |
-| showSymbolLogo            | boolean                           | false    | true                     | Show logo of symbol                   |
-| width                     | number/string                     | false    | 400                      | Sets a static width on the component  |
-| height                    | number/string                     | false    | 660                      | Sets a static height on the component |
-| autosize                  | boolean                           | false    | false                    | Sets the width and height to 100%     |
-| plotLineColorGrowing      | string                            | false    | rgba(33, 150, 243, 1)    | Price line growing color              |
-| plotLineColorFalling      | string                            | false    | rgba(33, 150, 243, 1)    | Price line falling color              |
-| gridLineColor             | string                            | false    | rgba(240, 243, 250, 1)   | Grid color                            |
-| scaleFontColor            | string                            | false    | rgba(120, 123, 134, 1)   | Font color                            |
-| belowLineFillColorGrowing | string                            | false    | rgba(33, 150, 243, 0.12) | Under line area growing color         |
-| belowLineFillColorFalling | string                            | false    | rgba(33, 150, 243, 0.12) | Under line area falling color         |
-| symbolActiveColor         | string                            | false    | rgba(33, 150, 243, 0.12) | Active Ticker color                   |
-| tabs                      | [_**MarketOverviewTab[]**_](#tab) | false    | See [_**here**_](#tabs)  | Tabs in market overview               |
+| Property                        | Type                              | Required | Default                  | Description                           |
+| ------------------------------- | --------------------------------- | -------- | ------------------------ | ------------------------------------- |
+| colorTheme                      | [_**ColorTheme**_](#public-types) | false    | light                    | Sets the default theme                |
+| dateRange                       | [_**DateRange**_](#public-types)  | false    | 12M                      | Default date range of chart           |
+| showChart                       | boolean                           | false    | true                     | Show chart in overview                |
+| locale                          | string                            | false    | en                       | Sets the default locale               |
+| largeChartUrl                   | string                            | false    | undefined                | Make widget redirect to larger chart  |
+| isTransparent                   | boolean                           | false    | false                    | Transparent background for component  |
+| showSymbolLogo                  | boolean                           | false    | true                     | Show logo of symbol                   |
+| showFloatingTooltip             | boolean                           | false    | false                    | Show floating tooltip on chart        |
+| width                           | number/string                     | false    | 400                      | Sets a static width on the component  |
+| height                          | number/string                     | false    | 660                      | Sets a static height on the component |
+| autosize                        | boolean                           | false    | false                    | Sets the width and height to 100%     |
+| plotLineColorGrowing            | string                            | false    | rgba(33, 150, 243, 1)    | Price line growing color              |
+| plotLineColorFalling            | string                            | false    | rgba(33, 150, 243, 1)    | Price line falling color              |
+| gridLineColor                   | string                            | false    | rgba(240, 243, 250, 1)   | Grid color                            |
+| scaleFontColor                  | string                            | false    | rgba(120, 123, 134, 1)   | Font color                            |
+| belowLineFillColorGrowing       | string                            | false    | rgba(33, 150, 243, 0.12) | Under line area growing color         |
+| belowLineFillColorFalling       | string                            | false    | rgba(33, 150, 243, 0.12) | Under line area falling color         |
+| belowLineFillColorGrowingBottom | string                            | false    | rgba(41, 98, 255, 0)     | Under line area growing bottom color  |
+| belowLineFillColorFallingButtom | string                            | false    | rgba(41, 98, 255, 0)     | Under line area falling bottom collor |
+| symbolActiveColor               | string                            | false    | rgba(33, 150, 243, 0.12) | Active Ticker color                   |
+| tabs                            | [_**MarketOverviewTab[]**_](#tab) | false    | See [_**here**_](#tabs)  | Tabs in market overview               |
 
 ## MarketOverviewTab properties {#tab}
 

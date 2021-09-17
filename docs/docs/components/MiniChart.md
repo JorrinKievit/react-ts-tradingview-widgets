@@ -27,16 +27,17 @@ import { MiniChart } from "react-ts-tradingview-widgets";
 
 ## Properties
 
-| Property       | Type                              | Required | Default   | Description                               |
-| -------------- | --------------------------------- | -------- | --------- | ----------------------------------------- |
-| symbol         | string                            | false    | FX:EURUSD | Default symbol for widget                 |
-| width          | number/string                     | false    | 350       | Sets a static width on the component      |
-| height         | number/string                     | false    | 220       | Sets a static height on the component     |
-| locale         | string                            | false    | en        | Sets the default locale                   |
-| dateRange      | [_**DateRange**_](#public-types)  | false    | 12M       | Default date range of chart               |
-| autosize       | boolean                           | false    | false     | Sets the width and height to 100%         |
-| colorTheme     | [_**ColorTheme**_](#public-types) | false    | light     | Sets the default theme                    |
-| trendLineColor | string                            | false    | #37a6ef   | Sets default color of Price Line          |
-| underlineColor | string                            | false    | #E3F2FD   | Sets the default color of Under line area |
-| isTransparent  | boolean                           | false    | false     | Transparent background for component      |
-| largeChartUrl  | string                            | false    | undefined | Make widget redirect to larger chart      |
+| Property             | Type                              | Required | Default                | Description                               |
+| -------------------- | --------------------------------- | -------- | ---------------------- | ----------------------------------------- |
+| symbol               | string                            | false    | FX:EURUSD              | Default symbol for widget                 |
+| width                | number/string                     | false    | 350                    | Sets a static width on the component      |
+| height               | number/string                     | false    | 220                    | Sets a static height on the component     |
+| locale               | string                            | false    | en                     | Sets the default locale                   |
+| dateRange            | [_**DateRange**_](#public-types)  | false    | 12M                    | Default date range of chart               |
+| autosize             | boolean                           | false    | false                  | Sets the width and height to 100%         |
+| colorTheme           | [_**ColorTheme**_](#public-types) | false    | light                  | Sets the default theme                    |
+| trendLineColor       | string                            | false    | rgba(41, 98, 255, 1)   | Sets default color of Price Line          |
+| underlineColor       | string                            | false    | rgba(41, 98, 255, 0.3) | Sets the default color of Under line area |
+| underLineBottomColor | string                            | false    | rgba(41, 98, 255, 0)   | Sets under line bottom color              |
+| isTransparent        | boolean                           | false    | false                  | Transparent background for component      |
+| largeChartUrl        | string                            | false    | undefined              | Make widget redirect to larger chart      |

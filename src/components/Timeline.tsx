@@ -2,6 +2,19 @@ import React from "react";
 import setDivRef from "../setDivRef";
 import { ColorTheme, DisplayMode } from "../index";
 
+type Market = "crypto" | "forex" | "stock" | "index" | "futures" | "cfd";
+
+type ConditionalTimelineProps =
+  | {
+      feedMode?: "market";
+      market: Market;
+    }
+  | {
+      feedMode?: "symbol";
+      symbol: string;
+    }
+  | { feedMode?: "all_symbols" };
+
 export type TimelineProps = {
   colorTheme?: ColorTheme;
   isTransparent?: boolean;
@@ -10,13 +23,13 @@ export type TimelineProps = {
   height?: number | number;
   autosize?: boolean;
   locale?: string;
-  symbol?: string;
   largeChartUrl?: string;
 
   children?: never;
-};
+} & ConditionalTimelineProps;
 
 const Timeline: React.FC<TimelineProps> = ({
+  feedMode = "all_symbols",
   colorTheme = "light",
   isTransparent = false,
   displayMode = "regular",
@@ -24,7 +37,6 @@ const Timeline: React.FC<TimelineProps> = ({
   height = 830,
   autosize = false,
   locale = "en",
-  symbol = undefined,
   largeChartUrl = undefined,
   ...props
 }) => {
@@ -32,11 +44,11 @@ const Timeline: React.FC<TimelineProps> = ({
     {
       ...(!autosize ? { width } : { width: "100%" }),
       ...(!autosize ? { height } : { height: "100%" }),
+      feedMode,
       colorTheme,
       isTransparent,
       displayMode,
       locale,
-      symbol,
       largeChartUrl,
       ...props,
     },
