@@ -1,5 +1,5 @@
 import React from "react";
-import setDivRef from "../setDivRef";
+import { setDivRef } from "../utils";
 import { ColorTheme, DisplayMode } from "../index";
 
 type Market = "crypto" | "forex" | "stock" | "index" | "futures" | "cfd";

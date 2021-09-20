@@ -1,5 +1,5 @@
 import React from "react";
-import setDivRef from "../setDivRef";
+import { setDivRef } from "../utils";
 import { ColorTheme } from "../index";
 
 export type SingleTickerProps = {

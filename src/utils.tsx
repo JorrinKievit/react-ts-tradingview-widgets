@@ -3,12 +3,13 @@ import { createRef, useEffect } from "react";
 
 declare const TradingView: any;
 
-const setDivRef = (
+export const setDivRef = (
   scriptHTML: any,
   scriptSRC: string,
   containerId?: string,
   type?: "Widget" | "MediumWidget"
 ): any => {
+  console.log(scriptHTML);
   const ref: { current: HTMLDivElement | null } = createRef();
 
   useEffect(() => {
@@ -49,4 +50,12 @@ const setDivRef = (
   return <div ref={ref} id={containerId} />;
 };
 
-export default setDivRef;
+export const createId = (length: number): string => {
+  var result = "";
+  var characters = "abcdef0123456789";
+  var charactersLength = characters.length;
+  for (var i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+};

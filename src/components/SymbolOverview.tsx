@@ -1,6 +1,6 @@
 import React from "react";
 import { ChartType, ColorTheme, ScaleMode, ScalePosition } from "../index";
-import setDivRef from "../setDivRef";
+import { createId, setDivRef } from "../utils";
 
 export type SymbolOverviewProps = {
   symbols?: string[][];
@@ -79,7 +79,7 @@ const SymbolOverview: React.FC<SymbolOverviewProps> = ({
   wickDownColor = "#ef5350",
 
   autosize = false,
-  container_id = `symbol-overview-widget-container_${Math.random()}`,
+  container_id = `tradingview_${createId(5)}`,
   ...props
 }) => {
   return setDivRef(

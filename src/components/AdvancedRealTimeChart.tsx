@@ -1,6 +1,6 @@
 import React from "react";
 import { ColorTheme } from "../index";
-import setDivRef from "../setDivRef";
+import { createId, setDivRef } from "../utils";
 
 export type AdvancedRealTimeChartProps = {
   width?: number | string;
@@ -72,7 +72,7 @@ const AdvancedRealTimeChart: React.FC<AdvancedRealTimeChartProps> = ({
   popup_height = "400",
   watchlist = undefined,
   studies = undefined,
-  container_id = `advanced-chart-widget-container_${Math.random()}`,
+  container_id = `tradingview_${createId(5)}`,
   ...props
 }) => {
   return setDivRef(
