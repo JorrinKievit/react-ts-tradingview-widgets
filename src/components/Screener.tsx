@@ -118,7 +118,6 @@ const Screener: React.FC<ScreenerProps> = ({
     {
       ...(!autosize ? { width } : { width: "100%" }),
       ...(!autosize ? { height } : { height: "100%" }),
-      autosize,
       defaultColumn,
       defaultScreen,
       market,

@@ -28,7 +28,6 @@ const SingleTicker: React.FC<SingleTickerProps> = ({
     {
       symbol,
       ...(!autosize ? { width } : { width: "100%" }),
-      autosize,
       colorTheme,
       isTransparent,
       locale,

@@ -42,7 +42,6 @@ const ForexCrossRates: React.FC<ForexCrossRatesProps> = ({
     {
       ...(!autosize ? { width } : { width: "100%" }),
       ...(!autosize ? { height } : { height: "100%" }),
-      autosize,
       currencies,
       isTransparent,
       colorTheme,

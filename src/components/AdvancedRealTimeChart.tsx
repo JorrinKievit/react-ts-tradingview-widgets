@@ -79,6 +79,7 @@ const AdvancedRealTimeChart: React.FC<AdvancedRealTimeChartProps> = ({
     {
       ...(!autosize ? { width } : { width: "100%" }),
       ...(!autosize ? { height } : { height: "100%" }),
+      autosize,
       symbol,
       ...(!range ? { interval } : { range }),
       timezone,

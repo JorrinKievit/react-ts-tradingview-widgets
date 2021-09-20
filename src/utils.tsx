@@ -9,7 +9,6 @@ export const setDivRef = (
   containerId?: string,
   type?: "Widget" | "MediumWidget"
 ): any => {
-  console.log(scriptHTML);
   const ref: { current: HTMLDivElement | null } = createRef();
 
   useEffect(() => {
