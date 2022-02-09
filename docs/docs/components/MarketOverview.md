@@ -11,12 +11,12 @@ This is the React component for the [Market Overview Widget](https://www.trading
 ```
 import { MarketOverview } from "react-ts-tradingview-widgets";
 
-<MarketOverview colorTheme="dark" height={400} showFloatingTooltip></MarketOverview>
+<MarketOverview colorTheme="dark" height={400} width="100%" showFloatingTooltip></MarketOverview>
 ```
 
 import { MarketOverview } from "react-ts-tradingview-widgets";
 
-<MarketOverview colorTheme="dark" height={400} showFloatingTooltip></MarketOverview>
+<MarketOverview colorTheme="dark" height={400} width="100%" showFloatingTooltip></MarketOverview>
 
 ## Used Public types {#public-types}
 

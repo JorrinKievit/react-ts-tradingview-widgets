@@ -1,6 +1,7 @@
 import React from "react";
-import { setDivRef } from "../utils";
-import { ColorTheme } from "../index";
+import { ColorTheme, CopyrightStyles, Locales } from "../index";
+import Copyright from "./Copyright";
+import Widget from "./Widget";
 
 type DefaultColumnForexOrCrypto =
   //forex, crypto
@@ -66,9 +67,11 @@ type MarketCountries =
   | "israel"
   | "italy"
   | "luxembourg"
+  | "philippines"
   | "poland"
   | "korea"
   | "sweden"
+  | "taiwan"
   | "turkey"
   | "uk"
   | "vietnam";
@@ -93,11 +96,13 @@ export type ScreenerProps = {
   autosize?: boolean;
   showToolbar?: boolean;
   colorTheme?: ColorTheme;
-  locale?: string;
+  locale?: Locales;
   isTransparent?: boolean;
   largeChartUrl?: string;
 
   children?: never;
+
+  copyrightStyles?: CopyrightStyles;
 } & ConditionalScreenerProps;
 
 const Screener: React.FC<ScreenerProps> = ({
@@ -112,23 +117,33 @@ const Screener: React.FC<ScreenerProps> = ({
   locale = "en",
   isTransparent = false,
   largeChartUrl = undefined,
+  copyrightStyles,
   ...props
 }) => {
-  return setDivRef(
-    {
-      ...(!autosize ? { width } : { width: "100%" }),
-      ...(!autosize ? { height } : { height: "100%" }),
-      defaultColumn,
-      defaultScreen,
-      market,
-      showToolbar,
-      colorTheme,
-      locale,
-      isTransparent,
-      largeChartUrl,
-      ...props,
-    },
-    "https://s3.tradingview.com/external-embedding/embed-widget-screener.js"
+  return (
+    <div id="tradingview_widget_wrapper">
+      <Widget
+        scriptHTML={{
+          ...(!autosize ? { width } : { width: "100%" }),
+          ...(!autosize ? { height } : { height: "100%" }),
+          defaultColumn,
+          defaultScreen,
+          market,
+          showToolbar,
+          colorTheme,
+          locale,
+          isTransparent,
+          largeChartUrl,
+          ...props,
+        }}
+        scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-screener.js"
+      ></Widget>
+      <Copyright
+        copyrightStyles={copyrightStyles}
+        href={`https://www.tradingview.com/forex-screener/`}
+        spanText={`Forex Screener`}
+      />
+    </div>
   );
 };
 

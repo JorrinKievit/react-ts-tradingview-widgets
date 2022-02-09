@@ -1,6 +1,7 @@
 import React from "react";
-import { setDivRef } from "../utils";
-import { ColorTheme } from "../index";
+import { ColorTheme, CopyrightStyles, Locales } from "../index";
+import Copyright from "./Copyright";
+import Widget from "./Widget";
 
 export type CryptoCurrencyMarketProps = {
   width?: string | number;
@@ -14,10 +15,12 @@ export type CryptoCurrencyMarketProps = {
   screener_type?: "crypto_mkt";
   displayCurrency?: "USD" | "BTC";
   colorTheme?: ColorTheme;
-  locale?: string;
+  locale?: Locales;
   isTransparent?: boolean;
 
   children?: never;
+
+  copyrightStyles?: CopyrightStyles;
 };
 
 const CryptoCurrencyMarket: React.FC<CryptoCurrencyMarketProps> = ({
@@ -30,21 +33,31 @@ const CryptoCurrencyMarket: React.FC<CryptoCurrencyMarketProps> = ({
   colorTheme = "light",
   locale = "en",
   isTransparent = false,
+  copyrightStyles,
   ...props
 }) => {
-  return setDivRef(
-    {
-      ...(!autosize ? { width } : { width: "100%" }),
-      ...(!autosize ? { height } : { height: "100%" }),
-      defaultColumn,
-      screener_type,
-      displayCurrency,
-      colorTheme,
-      locale,
-      isTransparent,
-      ...props,
-    },
-    "https://s3.tradingview.com/external-embedding/embed-widget-screener.js"
+  return (
+    <div id="tradingview_widget_wrapper">
+      <Widget
+        scriptHTML={{
+          ...(!autosize ? { width } : { width: "100%" }),
+          ...(!autosize ? { height } : { height: "100%" }),
+          defaultColumn,
+          screener_type,
+          displayCurrency,
+          colorTheme,
+          locale,
+          isTransparent,
+          ...props,
+        }}
+        scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-screener.js"
+      ></Widget>
+      <Copyright
+        copyrightStyles={copyrightStyles}
+        href={`https://www.tradingview.com/markets/cryptocurrencies/prices-all/`}
+        spanText={`Cryptocurrency Markets`}
+      />
+    </div>
   );
 };
 

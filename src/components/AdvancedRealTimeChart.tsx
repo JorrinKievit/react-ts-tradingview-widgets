@@ -1,6 +1,14 @@
 import React from "react";
-import { ColorTheme } from "../index";
-import { createId, setDivRef } from "../utils";
+import {
+  ColorTheme,
+  CopyrightStyles,
+  Locales,
+  Studies,
+  Timezone,
+} from "../index";
+import { createId } from "../utils";
+import Copyright from "./Copyright";
+import Widget from "./Widget";
 
 export type AdvancedRealTimeChartProps = {
   width?: number | string;
@@ -20,10 +28,10 @@ export type AdvancedRealTimeChartProps = {
     | "D"
     | "W";
   range?: "1D" | "5D" | "1M" | "3M" | "6M" | "YTD" | "12M" | "60M" | "ALL";
-  timezone?: string;
+  timezone?: Timezone;
   theme?: ColorTheme;
   style?: "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
-  locale?: string;
+  locale?: Locales | "hu_HU" | "fa_IR";
   toolbar_bg?: string;
   enable_publishing?: boolean;
   withdateranges?: boolean;
@@ -39,10 +47,12 @@ export type AdvancedRealTimeChartProps = {
   popup_width?: string;
   popup_height?: string;
   watchlist?: string[];
-  studies?: string[];
+  studies?: Studies[];
 
   container_id?: string;
   children?: never;
+
+  copyrightStyles?: CopyrightStyles;
 };
 
 const AdvancedRealTimeChart: React.FC<AdvancedRealTimeChartProps> = ({
@@ -73,43 +83,55 @@ const AdvancedRealTimeChart: React.FC<AdvancedRealTimeChartProps> = ({
   watchlist = undefined,
   studies = undefined,
   container_id = `tradingview_${createId(5)}`,
+
+  copyrightStyles,
+
   ...props
 }) => {
-  return setDivRef(
-    {
-      ...(!autosize ? { width } : { width: "100%" }),
-      ...(!autosize ? { height } : { height: "100%" }),
-      autosize,
-      symbol,
-      ...(!range ? { interval } : { range }),
-      timezone,
-      theme,
-      style,
-      locale,
-      toolbar_bg,
-      enable_publishing,
-      hide_top_toolbar,
-      hide_legend,
-      withdateranges,
-      hide_side_toolbar,
-      allow_symbol_change,
-      save_image,
-      details,
-      hotlist,
-      calendar,
-      ...(show_popup_button && {
-        show_popup_button,
-        popup_width,
-        popup_height,
-      }),
-      watchlist,
-      studies,
-      container_id,
-      ...props,
-    },
-    "https://s3.tradingview.com/tv.js",
-    container_id,
-    "Widget"
+  return (
+    <div id="tradingview_widget_wrapper">
+      <Widget
+        scriptHTML={{
+          ...(!autosize ? { width } : { width: "100%" }),
+          ...(!autosize ? { height } : { height: "100%" }),
+          autosize,
+          symbol,
+          ...(!range ? { interval } : { range }),
+          timezone,
+          theme,
+          style,
+          locale,
+          toolbar_bg,
+          enable_publishing,
+          hide_top_toolbar,
+          hide_legend,
+          withdateranges,
+          hide_side_toolbar,
+          allow_symbol_change,
+          save_image,
+          details,
+          hotlist,
+          calendar,
+          ...(show_popup_button && {
+            show_popup_button,
+            popup_width,
+            popup_height,
+          }),
+          watchlist,
+          studies,
+          container_id,
+          ...props,
+        }}
+        scriptSRC="https://s3.tradingview.com/tv.js"
+        containerId={container_id}
+        type="Widget"
+      ></Widget>
+      <Copyright
+        copyrightStyles={copyrightStyles}
+        href={`https://www.tradingview.com/symbols/${symbol}`}
+        spanText={`${symbol} Chart`}
+      />
+    </div>
   );
 };
 

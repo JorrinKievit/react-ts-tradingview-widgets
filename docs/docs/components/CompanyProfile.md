@@ -11,12 +11,12 @@ This is the React component for the [Company Profile Widget](https://www.trading
 ```
 import { CompanyProfile } from "react-ts-tradingview-widgets";
 
-<CompanyProfile colorTheme="dark" height={400}></CompanyProfile>
+<CompanyProfile colorTheme="dark" height={400} width="100%"></CompanyProfile>
 ```
 
 import { CompanyProfile } from "react-ts-tradingview-widgets";
 
-<CompanyProfile colorTheme="dark" height={400}></CompanyProfile>
+<CompanyProfile colorTheme="dark" height={400} width="100%"></CompanyProfile>
 
 ## Used Public types {#public-types}
 

@@ -1,6 +1,7 @@
 import React from "react";
-import { setDivRef } from "../utils";
-import { ColorTheme } from "../index";
+import { ColorTheme, CopyrightStyles, Locales } from "../index";
+import Copyright from "./Copyright";
+import Widget from "./Widget";
 
 export interface MarketDataSymbol {
   name: string;
@@ -21,10 +22,12 @@ export interface MarketDataProps {
   showSymbolLogo?: boolean;
   colorTheme?: ColorTheme;
   isTransparent?: boolean;
-  locale?: string;
+  locale?: Locales;
   largeChartUrl?: string;
 
   children?: never;
+
+  copyrightStyles?: CopyrightStyles;
 }
 
 const defaultSymbolGroup = [
@@ -154,21 +157,31 @@ const MarketData: React.FC<MarketDataProps> = ({
   isTransparent = false,
   locale = "en",
   largeChartUrl = undefined,
+  copyrightStyles,
   ...props
 }) => {
-  return setDivRef(
-    {
-      ...(!autosize ? { width } : { width: "100%" }),
-      ...(!autosize ? { height } : { height: "100%" }),
-      symbolsGroups,
-      showSymbolLogo,
-      colorTheme,
-      isTransparent,
-      locale,
-      largeChartUrl,
-      ...props,
-    },
-    "https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js"
+  return (
+    <div id="tradingview_widget_wrapper">
+      <Widget
+        scriptHTML={{
+          ...(!autosize ? { width } : { width: "100%" }),
+          ...(!autosize ? { height } : { height: "100%" }),
+          symbolsGroups,
+          showSymbolLogo,
+          colorTheme,
+          isTransparent,
+          locale,
+          largeChartUrl,
+          ...props,
+        }}
+        scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js"
+      ></Widget>
+      <Copyright
+        copyrightStyles={copyrightStyles}
+        spanText={`Financial Markets`}
+        href="https://www.tradingview.com/markets/"
+      />
+    </div>
   );
 };
 

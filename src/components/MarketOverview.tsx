@@ -1,6 +1,7 @@
 import React from "react";
-import { setDivRef } from "../utils";
-import { ColorTheme, DateRange } from "../index";
+import { ColorTheme, DateRange, CopyrightStyles, Locales } from "../index";
+import Copyright from "./Copyright";
+import Widget from "./Widget";
 
 export type MarketOverviewSymbol = {
   s: string;
@@ -17,7 +18,7 @@ export type MarketOverviewProps = {
   colorTheme?: ColorTheme;
   dateRange?: DateRange;
   showChart?: boolean;
-  locale?: string;
+  locale?: Locales;
   largeChartUrl?: string;
   isTransparent?: boolean;
   showSymbolLogo?: boolean;
@@ -37,6 +38,8 @@ export type MarketOverviewProps = {
   tabs?: MarketOverviewTab[];
 
   children?: never;
+
+  copyrightStyles?: CopyrightStyles;
 };
 
 const defaultTabs: MarketOverviewTab[] = [
@@ -178,35 +181,45 @@ const MarketOverview: React.FC<MarketOverviewProps> = ({
   belowLineFillColorFallingBottom = "rgba(41, 98, 255, 0)",
   symbolActiveColor = "rgba(33, 150, 243, 0.12)",
   tabs = defaultTabs,
+  copyrightStyles,
   ...props
 }) => {
-  return setDivRef(
-    {
-      colorTheme,
-      dateRange,
-      showChart,
-      locale,
-      largeChartUrl,
-      isTransparent,
-      showSymbolLogo,
-      showFloatingTooltip,
-      ...(!autosize ? { width } : { width: "100%" }),
-      ...(!autosize ? { height } : { height: "100%" }),
-      ...(showChart && {
-        plotLineColorGrowing,
-        plotLineColorFalling,
-        gridLineColor,
-        scaleFontColor,
-        belowLineFillColorGrowing,
-        belowLineFillColorFalling,
-        belowLineFillColorGrowingBottom,
-        belowLineFillColorFallingBottom,
-        symbolActiveColor,
-      }),
-      tabs,
-      ...props,
-    },
-    "https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
+  return (
+    <div id="tradingview_widget_wrapper">
+      <Widget
+        scriptHTML={{
+          colorTheme,
+          dateRange,
+          showChart,
+          locale,
+          largeChartUrl,
+          isTransparent,
+          showSymbolLogo,
+          showFloatingTooltip,
+          ...(!autosize ? { width } : { width: "100%" }),
+          ...(!autosize ? { height } : { height: "100%" }),
+          ...(showChart && {
+            plotLineColorGrowing,
+            plotLineColorFalling,
+            gridLineColor,
+            scaleFontColor,
+            belowLineFillColorGrowing,
+            belowLineFillColorFalling,
+            belowLineFillColorGrowingBottom,
+            belowLineFillColorFallingBottom,
+            symbolActiveColor,
+          }),
+          tabs,
+          ...props,
+        }}
+        scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
+      ></Widget>
+      <Copyright
+        copyrightStyles={copyrightStyles}
+        spanText={`Financial Markets`}
+        href="https://www.tradingview.com/markets/"
+      />
+    </div>
   );
 };
 

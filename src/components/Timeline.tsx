@@ -1,19 +1,26 @@
-import React from "react";
-import { setDivRef } from "../utils";
-import { ColorTheme, DisplayMode } from "../index";
-
-type Market = "crypto" | "forex" | "stock" | "index" | "futures" | "cfd";
+import React, { useEffect, useState } from "react";
+import {
+  ColorTheme,
+  CopyrightStyles,
+  DisplayMode,
+  Locales,
+  Market,
+} from "../index";
+import Copyright from "./Copyright";
+import Widget from "./Widget";
 
 type ConditionalTimelineProps =
   | {
       feedMode?: "market";
-      market: Market;
+      market?: Market;
+      symbol?: never;
     }
   | {
       feedMode?: "symbol";
-      symbol: string;
+      symbol?: string;
+      market?: never;
     }
-  | { feedMode?: "all_symbols" };
+  | { feedMode?: "all_symbols"; market?: never; symbol?: never };
 
 export type TimelineProps = {
   colorTheme?: ColorTheme;
@@ -22,10 +29,12 @@ export type TimelineProps = {
   width?: number | number;
   height?: number | number;
   autosize?: boolean;
-  locale?: string;
+  locale?: Locales;
   largeChartUrl?: string;
 
   children?: never;
+
+  copyrightStyles?: CopyrightStyles;
 } & ConditionalTimelineProps;
 
 const Timeline: React.FC<TimelineProps> = ({
@@ -38,21 +47,78 @@ const Timeline: React.FC<TimelineProps> = ({
   autosize = false,
   locale = "en",
   largeChartUrl = undefined,
+  copyrightStyles,
+  symbol = "BTCUSD",
+  market = "crypto",
   ...props
 }) => {
-  return setDivRef(
-    {
-      ...(!autosize ? { width } : { width: "100%" }),
-      ...(!autosize ? { height } : { height: "100%" }),
-      feedMode,
-      colorTheme,
-      isTransparent,
-      displayMode,
-      locale,
-      largeChartUrl,
-      ...props,
-    },
-    "https://s3.tradingview.com/external-embedding/embed-widget-timeline.js"
+  const [href, sethref] = useState("");
+  const [spanText, setspanText] = useState("");
+
+  useEffect(() => {
+    if (feedMode == "all_symbols") {
+      sethref("key_events");
+      setspanText("Daily news roundup");
+    } else if (feedMode == "market") {
+      switch (market) {
+        case "crypto":
+          sethref("markets/cryptocurrencies/key-events/");
+          setspanText("Daily cryptocurrency news");
+          break;
+        case "forex":
+          sethref("markets/currencies/key-events/");
+          setspanText("Daily currency news");
+          break;
+        case "stock":
+          sethref("markets/stocks-usa/key-events/");
+          setspanText("Daily stock news");
+          break;
+        case "index":
+          sethref("markets/indices/key-events/");
+          setspanText("Daily index news");
+          break;
+        case "futures":
+          sethref("markets/futures/key-events/");
+          setspanText("Daily futures news");
+          break;
+        case "cfd":
+          sethref("markets/bonds/key-events/");
+          setspanText("Daily bonds news");
+          break;
+      }
+    } else if (feedMode == "symbol") {
+      sethref(`symbols/${symbol}/history-timeline/`);
+      setspanText(`${symbol} History`);
+    }
+  }, [feedMode, symbol, market]);
+
+  return (
+    <div id="tradingview_widget_wrapper">
+      <Widget
+        scriptHTML={{
+          ...(!autosize ? { width } : { width: "100%" }),
+          ...(!autosize ? { height } : { height: "100%" }),
+          feedMode,
+          ...(feedMode == "market"
+            ? { market }
+            : feedMode == "symbol"
+            ? { symbol }
+            : {}),
+          colorTheme,
+          isTransparent,
+          displayMode,
+          locale,
+          largeChartUrl,
+          ...props,
+        }}
+        scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js"
+      ></Widget>
+      <Copyright
+        copyrightStyles={copyrightStyles}
+        href={`https://www.tradingview.com/${href}`}
+        spanText={spanText}
+      />
+    </div>
   );
 };
 

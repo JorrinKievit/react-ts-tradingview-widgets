@@ -45,3 +45,5 @@ export type { TechnicalAnalysisProps } from "./TechnicalAnalysis";
 export type { TickerProps, TickerSymbol, TickerSymbols } from "./Ticker";
 export type { TickerTapeProps, TickerTapeSymbol } from "./TickerTape";
 export type { TimelineProps } from "./Timeline";
+
+export type { CopyrightProps } from "./Copyright";

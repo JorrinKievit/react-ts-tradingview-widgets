@@ -1,6 +1,7 @@
 import React from "react";
-import { setDivRef } from "../utils";
-import { ColorTheme } from "../index";
+import { ColorTheme, CopyrightStyles, Locales } from "../index";
+import Copyright from "./Copyright";
+import Widget from "./Widget";
 
 export type CompanyProfileProps = {
   symbol?: string;
@@ -9,10 +10,12 @@ export type CompanyProfileProps = {
   autosize?: boolean;
   colorTheme?: ColorTheme;
   isTransparent?: boolean;
-  locale?: string;
+  locale?: Locales;
   largeChartUrl?: string;
 
   children?: never;
+
+  copyrightStyles?: CopyrightStyles;
 };
 
 const CompanyProfile: React.FC<CompanyProfileProps> = ({
@@ -24,20 +27,30 @@ const CompanyProfile: React.FC<CompanyProfileProps> = ({
   isTransparent = false,
   locale = "en",
   largeChartUrl = undefined,
+  copyrightStyles,
   ...props
 }) => {
-  return setDivRef(
-    {
-      ...(!autosize ? { width } : { width: "100%" }),
-      ...(!autosize ? { height } : { height: "100%" }),
-      symbol,
-      colorTheme,
-      isTransparent,
-      locale,
-      largeChartUrl,
-      ...props,
-    },
-    "https://s3.tradingview.com/external-embedding/embed-widget-symbol-profile.js"
+  return (
+    <div id="tradingview_widget_wrapper">
+      <Widget
+        scriptHTML={{
+          ...(!autosize ? { width } : { width: "100%" }),
+          ...(!autosize ? { height } : { height: "100%" }),
+          symbol,
+          colorTheme,
+          isTransparent,
+          locale,
+          largeChartUrl,
+          ...props,
+        }}
+        scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-symbol-profile.js"
+      ></Widget>
+      <Copyright
+        copyrightStyles={copyrightStyles}
+        href={`https://www.tradingview.com/symbols/${symbol}/`}
+        spanText={`${symbol} Profile`}
+      />
+    </div>
   );
 };
 

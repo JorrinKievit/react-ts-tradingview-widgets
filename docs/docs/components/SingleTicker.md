@@ -11,12 +11,12 @@ This is the React component for the [Single Ticker Widget](https://www.tradingvi
 ```
 import { SingleTicker } from "react-ts-tradingview-widgets";
 
-<SingleTicker colorTheme="dark"></SingleTicker>
+<SingleTicker colorTheme="dark" width="100%"></SingleTicker>
 ```
 
 import { SingleTicker } from "react-ts-tradingview-widgets";
 
-<SingleTicker colorTheme="dark"></SingleTicker>
+<SingleTicker colorTheme="dark" width="100%"></SingleTicker>
 
 ## Used Public types {#public-types}
 

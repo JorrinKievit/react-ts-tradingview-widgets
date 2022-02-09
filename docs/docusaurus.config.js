@@ -67,6 +67,24 @@ module.exports = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} react-ts-tradingview-widgets, Inc.`,
     },
+    algolia: {
+      // The application ID provided by Algolia
+      appId: "8X41UIWEUN",
+
+      // Public API key: it is safe to commit it
+      apiKey: "8e33328cdb9ebe4c5498f3729e5a7d05",
+
+      indexName: "react-ts-tradingview-widgets",
+
+      // Optional: see doc section below
+      contextualSearch: true,
+
+      // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
+      // externalUrlRegex: 'external\\.com|domain\\.com',
+
+      // Optional: Algolia search parameters
+      // searchParameters: {},
+    },
   },
   presets: [
     [

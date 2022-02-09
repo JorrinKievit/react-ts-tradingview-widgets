@@ -11,18 +11,18 @@ This is the React component for the [Technical Analysis Widget](https://www.trad
 ```
 import { TechnicalAnalysis } from "react-ts-tradingview-widgets";
 
-<TechnicalAnalysis colorTheme="dark"></TechnicalAnalysis>
+<TechnicalAnalysis colorTheme="dark" width="100%"></TechnicalAnalysis>
 ```
 
 import { TechnicalAnalysis } from "react-ts-tradingview-widgets";
 
-<TechnicalAnalysis colorTheme="dark"></TechnicalAnalysis>
+<TechnicalAnalysis colorTheme="dark" width="100%"></TechnicalAnalysis>
 
 ## Used Private types {#private-types}
 
-| Type     | Value                                  |
-| -------- | -------------------------------------- |
-| Interval | 1m / 5m / 15m / 1h / 4h / 1D / 1W / 1M |
+| Type     | Value                                        |
+| -------- | -------------------------------------------- |
+| Interval | 1m / 5m / 15m / 30m / 1h / 4h / 1D / 1W / 1M |
 
 ## Used Public types {#public-types}
 

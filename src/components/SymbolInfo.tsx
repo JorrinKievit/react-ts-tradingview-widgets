@@ -1,17 +1,20 @@
 import React from "react";
-import { setDivRef } from "../utils";
-import { ColorTheme } from "../index";
+import { ColorTheme, CopyrightStyles, Locales } from "../index";
+import Copyright from "./Copyright";
+import Widget from "./Widget";
 
 export type SymbolInfoProps = {
   symbol?: string;
   width?: string | number;
   autosize?: boolean;
-  locale?: string;
+  locale?: Locales;
   colorTheme?: ColorTheme;
   isTransparent?: boolean;
   largeChartUrl?: string;
 
   children?: never;
+
+  copyrightStyles?: CopyrightStyles;
 };
 
 const SymbolInfo: React.FC<SymbolInfoProps> = ({
@@ -22,19 +25,29 @@ const SymbolInfo: React.FC<SymbolInfoProps> = ({
   colorTheme = "light",
   isTransparent = false,
   largeChartUrl = undefined,
+  copyrightStyles,
   ...props
 }) => {
-  return setDivRef(
-    {
-      symbol,
-      ...(!autosize ? { width } : { width: "100%" }),
-      locale,
-      colorTheme,
-      isTransparent,
-      largeChartUrl,
-      ...props,
-    },
-    "https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js"
+  return (
+    <div id="tradingview_widget_wrapper">
+      <Widget
+        scriptHTML={{
+          symbol,
+          ...(!autosize ? { width } : { width: "100%" }),
+          locale,
+          colorTheme,
+          isTransparent,
+          largeChartUrl,
+          ...props,
+        }}
+        scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js"
+      ></Widget>
+      <Copyright
+        copyrightStyles={copyrightStyles}
+        href={`https://www.tradingview.com/symbols/${symbol}/`}
+        spanText={`${symbol} Price Today`}
+      />
+    </div>
   );
 };
 

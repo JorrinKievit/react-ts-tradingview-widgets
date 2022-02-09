@@ -1,6 +1,7 @@
 import React from "react";
-import { setDivRef } from "../utils";
-import { ColorTheme } from "../index";
+import { ColorTheme, CopyrightStyles, Locales } from "../index";
+import Copyright from "./Copyright";
+import Widget from "./Widget";
 
 export type SingleTickerProps = {
   symbol?: string;
@@ -8,10 +9,12 @@ export type SingleTickerProps = {
   autosize?: boolean;
   colorTheme?: ColorTheme;
   isTransparent?: boolean;
-  locale?: string;
+  locale?: Locales;
   largeChartUrl?: string;
 
   children?: never;
+
+  copyrightStyles?: CopyrightStyles;
 };
 
 const SingleTicker: React.FC<SingleTickerProps> = ({
@@ -22,19 +25,29 @@ const SingleTicker: React.FC<SingleTickerProps> = ({
   isTransparent = false,
   locale = "en",
   largeChartUrl = undefined,
+  copyrightStyles,
   ...props
 }) => {
-  return setDivRef(
-    {
-      symbol,
-      ...(!autosize ? { width } : { width: "100%" }),
-      colorTheme,
-      isTransparent,
-      locale,
-      largeChartUrl,
-      ...props,
-    },
-    "https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js"
+  return (
+    <div id="tradingview_widget_wrapper">
+      <Widget
+        scriptHTML={{
+          symbol,
+          ...(!autosize ? { width } : { width: "100%" }),
+          colorTheme,
+          isTransparent,
+          locale,
+          largeChartUrl,
+          ...props,
+        }}
+        scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js"
+      ></Widget>
+      <Copyright
+        copyrightStyles={copyrightStyles}
+        href={`https://www.tradingview.com/symbols/${symbol}/`}
+        spanText={`${symbol} Rates`}
+      />
+    </div>
   );
 };
 

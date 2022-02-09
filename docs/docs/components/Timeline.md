@@ -11,12 +11,12 @@ This is the React component for the [Timeline Widget](https://www.tradingview.co
 ```
 import { Timeline } from "react-ts-tradingview-widgets";
 
-<Timeline colorTheme="dark" symbol="BITSTAMP:BTCUSD" height={400}></Timeline>
+<Timeline colorTheme="dark" feedMode="market" market="crypto" height={400} width="100%"></Timeline>
 ```
 
 import { Timeline } from "react-ts-tradingview-widgets";
 
-<Timeline colorTheme="dark" symbol="BITSTAMP:BTCUSD" height={400}></Timeline>
+<Timeline colorTheme="dark" feedMode="market" market="crypto" height={400} width="100%"></Timeline>
 
 ## Used private types {#private-types}
 

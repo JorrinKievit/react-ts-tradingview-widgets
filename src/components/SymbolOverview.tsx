@@ -1,13 +1,22 @@
 import React from "react";
-import { ChartType, ColorTheme, ScaleMode, ScalePosition } from "../index";
-import { createId, setDivRef } from "../utils";
+import {
+  ChartType,
+  ColorTheme,
+  CopyrightStyles,
+  Locales,
+  ScaleMode,
+  ScalePosition,
+} from "../index";
+import { createId } from "../utils";
+import Copyright from "./Copyright";
+import Widget from "./Widget";
 
 export type SymbolOverviewProps = {
   symbols?: string[][];
   chartOnly?: boolean;
   width?: string | number;
   height?: string | number;
-  locale?: string;
+  locale?: Locales;
   colorTheme?: ColorTheme;
   gridLineColor?: string;
   fontColor?: string;
@@ -15,7 +24,14 @@ export type SymbolOverviewProps = {
   showFloatingTooltip?: boolean;
   scalePosition?: ScalePosition;
   scaleMode?: ScaleMode;
-  fontFamily?: string;
+  fontFamily?:
+    | "Trebuchet MS, sans-serif"
+    | "Arial, sans-serif"
+    | "Times, Times New Roman, serif"
+    | "Andale Mono, monospace"
+    | "Courier New, monospace"
+    | "Comic Sans MS, Comic Sans, cursive"
+    | "Trattatello, fantasy";
   noTimeScale?: boolean;
   chartType?: ChartType;
 
@@ -38,6 +54,8 @@ export type SymbolOverviewProps = {
   container_id?: string;
 
   children?: never;
+
+  copyrightStyles?: CopyrightStyles;
 };
 
 const defaultSymbols = [
@@ -80,43 +98,53 @@ const SymbolOverview: React.FC<SymbolOverviewProps> = ({
 
   autosize = false,
   container_id = `tradingview_${createId(5)}`,
+  copyrightStyles,
   ...props
 }) => {
-  return setDivRef(
-    {
-      symbols,
-      chartOnly,
-      ...(!autosize ? { width } : { width: "100%" }),
-      ...(!autosize ? { height } : { height: "100%" }),
-      locale,
-      colorTheme,
-      gridLineColor,
-      fontColor,
-      isTransparent,
-      showFloatingTooltip,
-      scalePosition,
-      scaleMode,
-      fontFamily,
-      noTimeScale,
-      chartType,
-      ...(chartType === "area" && { lineColor, bottomColor, topColor }),
-      ...((chartType === "bars" || chartType === "candlesticks") && {
-        upColor,
-        downColor,
-      }),
-      ...(chartType === "candlesticks" && {
-        borderUpColor,
-        borderDownColor,
-        wickUpColor,
-        wickDownColor,
-      }),
-      autosize,
-      container_id,
-      ...props,
-    },
-    "https://s3.tradingview.com/tv.js",
-    container_id,
-    "MediumWidget"
+  return (
+    <div id="tradingview_widget_wrapper">
+      <Widget
+        scriptHTML={{
+          symbols,
+          chartOnly,
+          ...(!autosize ? { width } : { width: "100%" }),
+          ...(!autosize ? { height } : { height: "100%" }),
+          locale,
+          colorTheme,
+          gridLineColor,
+          fontColor,
+          isTransparent,
+          showFloatingTooltip,
+          scalePosition,
+          scaleMode,
+          fontFamily,
+          noTimeScale,
+          chartType,
+          ...(chartType === "area" && { lineColor, bottomColor, topColor }),
+          ...((chartType === "bars" || chartType === "candlesticks") && {
+            upColor,
+            downColor,
+          }),
+          ...(chartType === "candlesticks" && {
+            borderUpColor,
+            borderDownColor,
+            wickUpColor,
+            wickDownColor,
+          }),
+          autosize,
+          container_id,
+          ...props,
+        }}
+        scriptSRC="https://s3.tradingview.com/tv.js"
+        containerId={container_id}
+        type="MediumWidget"
+      ></Widget>
+      <Copyright
+        copyrightStyles={copyrightStyles}
+        href={`https://www.tradingview.com/symbols/${symbols[0][1]}`}
+        spanText={`${symbols[0][1]}`}
+      />
+    </div>
   );
 };
 

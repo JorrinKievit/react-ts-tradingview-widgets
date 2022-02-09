@@ -11,12 +11,12 @@ This is the React component for the [Fundamental Data Widget](https://www.tradin
 ```
 import { FundamentalData } from "react-ts-tradingview-widgets";
 
-<FundamentalData colorTheme="dark"></FundamentalData>
+<FundamentalData colorTheme="dark" height={400} width="100%"></FundamentalData>
 ```
 
 import { FundamentalData } from "react-ts-tradingview-widgets";
 
-<FundamentalData colorTheme="dark" height={400}></FundamentalData>
+<FundamentalData colorTheme="dark" height={400} width="100%"></FundamentalData>
 
 ## Used Public types {#public-types}
 

@@ -11,12 +11,12 @@ This is the React component for the [Economic Calendar](https://www.tradingview.
 ```
 import { EconomicCalendar } from "react-ts-tradingview-widgets";
 
-<EconomicCalendar colorTheme="dark" height={400}></EconomicCalendar>
+<EconomicCalendar colorTheme="dark" height={400} width="100%"></EconomicCalendar>
 ```
 
 import { EconomicCalendar } from "react-ts-tradingview-widgets";
 
-<EconomicCalendar colorTheme="dark" height={400}></EconomicCalendar>
+<EconomicCalendar colorTheme="dark" height={400} width="100%"></EconomicCalendar>
 
 ## Used Private types {#private-types}
 

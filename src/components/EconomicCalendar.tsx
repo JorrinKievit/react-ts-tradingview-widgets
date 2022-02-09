@@ -1,6 +1,7 @@
 import React from "react";
-import { setDivRef } from "../utils";
-import { ColorTheme } from "../index";
+import { ColorTheme, CopyrightStyles, Locales } from "../index";
+import Copyright from "./Copyright";
+import Widget from "./Widget";
 
 export type EconomicCalendarProps = {
   colorTheme?: ColorTheme;
@@ -8,11 +9,13 @@ export type EconomicCalendarProps = {
   width?: string | number;
   height?: string | number;
   autosize?: boolean;
-  locale?: string;
+  locale?: Locales;
   importanceFilter?: "-1,0,1" | "0,1";
   currencyFilter?: string;
 
   children?: never;
+
+  copyrightStyles?: CopyrightStyles;
 };
 
 const EconomicCalendar: React.FC<EconomicCalendarProps> = ({
@@ -24,20 +27,30 @@ const EconomicCalendar: React.FC<EconomicCalendarProps> = ({
   locale = "en",
   importanceFilter = "-1,0,1",
   currencyFilter = undefined,
+  copyrightStyles,
   ...props
 }) => {
-  return setDivRef(
-    {
-      colorTheme,
-      isTransparent,
-      ...(!autosize ? { width } : { width: "100%" }),
-      ...(!autosize ? { height } : { height: "100%" }),
-      locale,
-      importanceFilter,
-      currencyFilter,
-      ...props,
-    },
-    "https://s3.tradingview.com/external-embedding/embed-widget-events.js"
+  return (
+    <div id="tradingview_widget_wrapper">
+      <Widget
+        scriptHTML={{
+          colorTheme,
+          isTransparent,
+          ...(!autosize ? { width } : { width: "100%" }),
+          ...(!autosize ? { height } : { height: "100%" }),
+          locale,
+          importanceFilter,
+          currencyFilter,
+          ...props,
+        }}
+        scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-events.js"
+      ></Widget>
+      <Copyright
+        copyrightStyles={copyrightStyles}
+        href={`https://www.tradingview.com/markets/currencies/economic-calendar/`}
+        spanText={`Economic Calendar`}
+      />
+    </div>
   );
 };
 

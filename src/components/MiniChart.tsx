@@ -1,12 +1,13 @@
 import React from "react";
-import { setDivRef } from "../utils";
-import { ColorTheme, DateRange } from "../index";
+import { ColorTheme, DateRange, CopyrightStyles, Locales } from "../index";
+import Copyright from "./Copyright";
+import Widget from "./Widget";
 
 export type MiniChartProps = {
   symbol?: string;
   width?: number | number;
   height?: number | number;
-  locale?: string;
+  locale?: Locales;
   dateRange?: DateRange;
   colorTheme?: ColorTheme;
   trendLineColor?: string;
@@ -17,6 +18,8 @@ export type MiniChartProps = {
   largeChartUrl?: string;
 
   children?: never;
+
+  copyrightStyles?: CopyrightStyles;
 };
 
 const MiniChart: React.FC<MiniChartProps> = ({
@@ -32,24 +35,34 @@ const MiniChart: React.FC<MiniChartProps> = ({
   isTransparent = false,
   autosize = false,
   largeChartUrl = undefined,
+  copyrightStyles,
   ...props
 }) => {
-  return setDivRef(
-    {
-      symbol,
-      ...(!autosize ? { width } : { width: "100%" }),
-      ...(!autosize ? { height } : { height: "100%" }),
-      locale,
-      dateRange,
-      colorTheme,
-      trendLineColor,
-      underLineColor,
-      isTransparent,
-      autosize,
-      largeChartUrl,
-      ...props,
-    },
-    "https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js"
+  return (
+    <div id="tradingview_widget_wrapper">
+      <Widget
+        scriptHTML={{
+          symbol,
+          ...(!autosize ? { width } : { width: "100%" }),
+          ...(!autosize ? { height } : { height: "100%" }),
+          locale,
+          dateRange,
+          colorTheme,
+          trendLineColor,
+          underLineColor,
+          isTransparent,
+          autosize,
+          largeChartUrl,
+          ...props,
+        }}
+        scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js"
+      ></Widget>
+      <Copyright
+        copyrightStyles={copyrightStyles}
+        href={`https://www.tradingview.com/symbols/${symbol}/`}
+        spanText={`${symbol} Rates`}
+      />
+    </div>
   );
 };
 

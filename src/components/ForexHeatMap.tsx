@@ -1,21 +1,24 @@
 import React from "react";
-import { setDivRef } from "../utils";
-import { ColorTheme } from "../index";
+import { ColorTheme, Currencies, CopyrightStyles, Locales } from "../index";
+import Copyright from "./Copyright";
+import Widget from "./Widget";
 
 export type ForexHeatMapProps = {
   width?: string | number;
   height?: string | number;
   autosize?: boolean;
-  currencies?: string[];
+  currencies?: Currencies[];
   isTransparent?: boolean;
   colorTheme?: ColorTheme;
-  locale?: string;
+  locale?: Locales;
   largeChartUrl?: string;
 
   children?: never;
+
+  copyrightStyles?: CopyrightStyles;
 };
 
-const defaultCurrencies = [
+const defaultCurrencies: Currencies[] = [
   "EUR",
   "USD",
   "JPY",
@@ -36,20 +39,30 @@ const ForexHeatMap: React.FC<ForexHeatMapProps> = ({
   colorTheme = "light",
   locale = "en",
   largeChartUrl = undefined,
+  copyrightStyles,
   ...props
 }) => {
-  return setDivRef(
-    {
-      ...(!autosize ? { width } : { width: "100%" }),
-      ...(!autosize ? { height } : { height: "100%" }),
-      currencies,
-      isTransparent,
-      colorTheme,
-      locale,
-      largeChartUrl,
-      ...props,
-    },
-    "https://s3.tradingview.com/external-embedding/embed-widget-forex-heat-map.js"
+  return (
+    <div id="tradingview_widget_wrapper">
+      <Widget
+        scriptHTML={{
+          ...(!autosize ? { width } : { width: "100%" }),
+          ...(!autosize ? { height } : { height: "100%" }),
+          currencies,
+          isTransparent,
+          colorTheme,
+          locale,
+          largeChartUrl,
+          ...props,
+        }}
+        scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-forex-heat-map.js"
+      ></Widget>
+      <Copyright
+        copyrightStyles={copyrightStyles}
+        href={`https://www.tradingview.com/markets/currencies/forex-heat-map/`}
+        spanText={`Forex Heat Map`}
+      />
+    </div>
   );
 };
 

@@ -1,20 +1,33 @@
 import React from "react";
-import { setDivRef } from "../utils";
-import { ColorTheme } from "../index";
+import { ColorTheme, CopyrightStyles, Locales } from "../index";
+import Copyright from "./Copyright";
+import Widget from "./Widget";
 
 export type TechnicalAnalysisProps = {
-  interval?: "1m" | "5m" | "15m" | "1h" | "4h" | "1D" | "1W" | "1M";
+  interval?:
+    | "1m"
+    | "5m"
+    | "15m"
+    | "30m"
+    | "1h"
+    | "2h"
+    | "4h"
+    | "1D"
+    | "1W"
+    | "1M";
   width?: number | number;
   height?: number | number;
   autosize?: boolean;
   isTransparent?: boolean;
   symbol?: string;
   showIntervalTabs?: boolean;
-  locale?: string;
+  locale?: Locales;
   colorTheme?: ColorTheme;
   largeChartUrl?: string;
 
   children?: never;
+
+  copyrightStyles?: CopyrightStyles;
 };
 
 const TechnicalAnalysis: React.FC<TechnicalAnalysisProps> = ({
@@ -28,22 +41,32 @@ const TechnicalAnalysis: React.FC<TechnicalAnalysisProps> = ({
   locale = "en",
   colorTheme = "light",
   largeChartUrl = undefined,
+  copyrightStyles,
   ...props
 }) => {
-  return setDivRef(
-    {
-      interval,
-      ...(!autosize ? { width } : { width: "100%" }),
-      ...(!autosize ? { height } : { height: "100%" }),
-      isTransparent,
-      symbol,
-      showIntervalTabs,
-      locale,
-      colorTheme,
-      largeChartUrl,
-      ...props,
-    },
-    "https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js"
+  return (
+    <div id="tradingview_widget_wrapper">
+      <Widget scriptHTML={{
+          interval,
+          ...(!autosize ? { width } : { width: "100%" }),
+          ...(!autosize ? { height } : { height: "100%" }),
+          isTransparent,
+          symbol,
+          showIntervalTabs,
+          locale,
+          colorTheme,
+          largeChartUrl,
+          ...props,
+        }} scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js"></Widget>
+      <Copyright
+        copyrightStyles={copyrightStyles}
+        href={`https://www.tradingview.com/symbols/${symbol.replace(
+          ":",
+          "-"
+        )}/technicals/`}
+        spanText={`Technical Analysis for ${symbol}`}
+      />
+    </div>
   );
 };
 

@@ -1,6 +1,7 @@
 import React from "react";
-import { setDivRef } from "../utils";
-import { ColorTheme, DisplayMode } from "../index";
+import { ColorTheme, CopyrightStyles, DisplayMode, Locales } from "../index";
+import Copyright from "./Copyright";
+import Widget from "./Widget";
 
 export interface TickerTapeSymbol {
   proName: string;
@@ -14,9 +15,11 @@ export interface TickerTapeProps {
   isTransparent?: boolean;
   largeChartUrl?: string;
   displayMode?: DisplayMode;
-  locale?: string;
+  locale?: Locales;
 
   children?: never;
+
+  copyrightStyles?: CopyrightStyles;
 }
 
 const defaultSymbols: TickerTapeSymbol[] = [
@@ -50,20 +53,30 @@ const TickerTape: React.FC<TickerTapeProps> = ({
   largeChartUrl = undefined,
   displayMode = "adaptive",
   locale = "en",
+  copyrightStyles,
   ...props
 }) => {
-  return setDivRef(
-    {
-      symbols,
-      showSymbolLogo,
-      colorTheme,
-      isTransparent,
-      largeChartUrl,
-      displayMode,
-      locale,
-      ...props,
-    },
-    "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+  return (
+    <div id="tradingview_widget_wrapper">
+      <Widget
+        scriptHTML={{
+          symbols,
+          showSymbolLogo,
+          colorTheme,
+          isTransparent,
+          largeChartUrl,
+          displayMode,
+          locale,
+          ...props,
+        }}
+        scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+      ></Widget>
+      <Copyright
+        copyrightStyles={copyrightStyles}
+        href={`https://www.tradingview.com/markets/`}
+        spanText={`Markets`}
+      />
+    </div>
   );
 };
 

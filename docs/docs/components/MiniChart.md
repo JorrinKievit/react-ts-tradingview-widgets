@@ -11,12 +11,12 @@ This is the React component for the [Mini Chart Widget](https://www.tradingview.
 ```
 import { MiniChart } from "react-ts-tradingview-widgets";
 
-<MiniChart colorTheme="dark"></MiniChart>
+<MiniChart colorTheme="dark" width="100%"></MiniChart>
 ```
 
 import { MiniChart } from "react-ts-tradingview-widgets";
 
-<MiniChart colorTheme="dark"></MiniChart>
+<MiniChart colorTheme="dark" width="100%"></MiniChart>
 
 ## Used Public types {#public-types}
 

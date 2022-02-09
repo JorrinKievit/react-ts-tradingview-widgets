@@ -1,15 +1,18 @@
 import React from "react";
-import { setDivRef } from "../utils";
-import { ColorTheme } from "../index";
+import { ColorTheme, CopyrightStyles, Locales } from "../index";
+import Copyright from "./Copyright";
+import Widget from "./Widget";
 
 export type TickerProps = {
   colorTheme?: ColorTheme;
   isTransparent?: boolean;
   showSymbolLogo?: boolean;
-  locale?: string;
+  locale?: Locales;
   symbols?: TickerSymbols;
 
   children?: never;
+
+  copyrightStyles?: CopyrightStyles;
 };
 
 export type TickerSymbols = TickerSymbol[];
@@ -48,18 +51,28 @@ const Ticker: React.FC<TickerProps> = ({
   showSymbolLogo = true,
   locale = "en",
   symbols = defaultSymbols,
+  copyrightStyles,
   ...props
 }) => {
-  return setDivRef(
-    {
-      colorTheme,
-      isTransparent,
-      showSymbolLogo,
-      locale,
-      symbols,
-      ...props,
-    },
-    "https://s3.tradingview.com/external-embedding/embed-widget-tickers.js"
+  return (
+    <div id="tradingview_widget_wrapper">
+      <Widget
+        scriptHTML={{
+          colorTheme,
+          isTransparent,
+          showSymbolLogo,
+          locale,
+          symbols,
+          ...props,
+        }}
+        scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js"
+      ></Widget>
+      <Copyright
+        copyrightStyles={copyrightStyles}
+        href={`https://www.tradingview.com/`}
+        spanText={`Qoutes`}
+      />
+    </div>
   );
 };
 

@@ -11,12 +11,12 @@ This is the React component for the [Stock Market Widget](https://www.tradingvie
 ```
 import { StockMarket } from "react-ts-tradingview-widgets";
 
-<StockMarket colorTheme="dark" height={400}></StockMarket>
+<StockMarket colorTheme="dark" height={400} width="100%"></StockMarket>
 ```
 
 import { StockMarket } from "react-ts-tradingview-widgets";
 
-<StockMarket colorTheme="dark" height={400}></StockMarket>
+<StockMarket colorTheme="dark" height={400} width="100%"></StockMarket>
 
 ## Used Private types {#private-types}
 
