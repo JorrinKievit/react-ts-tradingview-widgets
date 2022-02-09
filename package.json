@@ -4,7 +4,7 @@
   "description": "This is a React component library for TradingView Widgets. TypeScript is fully supported for every component!",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\"",
     "build": "rollup -c",
     "start": "rollup -c -w"
   },
