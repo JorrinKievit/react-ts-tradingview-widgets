@@ -5,6 +5,7 @@ import {
   Locales,
   Studies,
   Timezone,
+  WidgetFeatures,
 } from "../index";
 import { createId } from "../utils";
 import Copyright from "./Copyright";
@@ -48,6 +49,8 @@ export type AdvancedRealTimeChartProps = {
   popup_height?: string;
   watchlist?: string[];
   studies?: Studies[];
+  disabled_features?: WidgetFeatures[];
+  enabled_features?: WidgetFeatures[];
 
   container_id?: string;
   children?: never;
@@ -82,6 +85,8 @@ const AdvancedRealTimeChart: React.FC<AdvancedRealTimeChartProps> = ({
   popup_height = "400",
   watchlist = undefined,
   studies = undefined,
+  disabled_features = undefined,
+  enabled_features = undefined,
   container_id = `tradingview_${createId(5)}`,
 
   copyrightStyles,
@@ -119,6 +124,8 @@ const AdvancedRealTimeChart: React.FC<AdvancedRealTimeChartProps> = ({
           }),
           watchlist,
           studies,
+          disabled_features,
+          enabled_features,
           container_id,
           ...props,
         }}
