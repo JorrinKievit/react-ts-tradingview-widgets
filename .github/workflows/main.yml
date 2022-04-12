@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - v1.0.10
+      - main
 
 jobs:
   publish_package:
@@ -31,7 +31,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          #cache: yarn
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
