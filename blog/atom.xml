@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://jorrinkievit.github.io/blog</id>
+    <id>https://tradingview-widgets.jorrinkievit.xyz/blog</id>
     <title>react-ts-tradingview-widgets Blog</title>
     <updated>2015-10-25T23:29:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://jorrinkievit.github.io/blog"/>
+    <link rel="alternate" href="https://tradingview-widgets.jorrinkievit.xyz/blog"/>
     <subtitle>react-ts-tradingview-widgets Blog</subtitle>
-    <icon>https://jorrinkievit.github.io/img/favicon.ico</icon>
+    <icon>https://tradingview-widgets.jorrinkievit.xyz/img/favicon.ico</icon>
 </feed>

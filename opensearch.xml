@@ -4,8 +4,8 @@
   <ShortName>react-ts-tradingview-widgets</ShortName>
   <Description>Search react-ts-tradingview-widgets</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">https://jorrinkievit.github.io/react-ts-tradingview-widgets/img/favicon.ico</Image>
-  <Url type="text/html" method="get" template="https://jorrinkievit.github.io/react-ts-tradingview-widgets/search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://jorrinkievit.github.io/react-ts-tradingview-widgets/opensearch.xml" />
-  <moz:SearchForm>https://jorrinkievit.github.io/react-ts-tradingview-widgets/</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">https://tradingview-widgets.jorrinkievit.xyz/img/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://tradingview-widgets.jorrinkievit.xyz/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://tradingview-widgets.jorrinkievit.xyz/opensearch.xml" />
+  <moz:SearchForm>https://tradingview-widgets.jorrinkievit.xyz/</moz:SearchForm>
 </OpenSearchDescription>
