@@ -5,8 +5,8 @@ import Widget from "./Widget";
 
 export type MiniChartProps = {
   symbol?: string;
-  width?: number | number;
-  height?: number | number;
+  width?: number | string;
+  height?: number | string;
   locale?: Locales;
   dateRange?: DateRange;
   colorTheme?: ColorTheme;
