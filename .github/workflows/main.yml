@@ -17,7 +17,7 @@ jobs:
       - name: Install deps and build
         run: npm install && npm run build
       - name: Publish package to npm
-        run: npm publish --dry-run
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
