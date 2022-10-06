@@ -4,7 +4,12 @@ interface WidgetProps {
   scriptHTML: any;
   scriptSRC: string;
   containerId?: string;
-  type?: "Widget" | "MediumWidget";
+  type?:
+    | "Widget"
+    | "MediumWidget"
+    | "EventsWidget"
+    | "IdeasStreamWidget"
+    | "ChatWidgetEmbed";
 }
 
 declare const TradingView: any;
@@ -26,16 +31,25 @@ const Widget: React.FC<WidgetProps> = ({
       script.async = true;
       script.type = "text/javascript";
 
-      if (type === "Widget" || type === "MediumWidget") {
+      if (type) {
         if (typeof TradingView !== undefined) {
           script.onload = () => {
-            script.innerHTML = JSON.stringify(
-              type === "Widget"
-                ? new TradingView.widget(scriptHTML)
-                : type === "MediumWidget"
-                ? new TradingView.MediumWidget(scriptHTML)
-                : undefined
-            );
+            switch (type) {
+              case "Widget":
+                script.innerHTML = new TradingView.widget(scriptHTML);
+                break;
+              case "MediumWidget":
+                script.innerHTML = new TradingView.MediumWidget(scriptHTML);
+                break;
+              case "IdeasStreamWidget":
+                script.innerHTML = new TradingView.IdeasStreamWidget(
+                  scriptHTML
+                );
+                break;
+              case "ChatWidgetEmbed":
+                script.innerHTML = new TradingView.ChatWidgetEmbed(scriptHTML);
+                break;
+            }
           };
         }
       } else {

@@ -18,6 +18,10 @@ export { default as Ticker } from "./Ticker";
 export { default as TickerTape } from "./TickerTape";
 export { default as Timeline } from "./Timeline";
 
+export { default as EventsWidget } from "./experimental/EventsWidget";
+export { default as IdeasStreamWidget } from "./experimental/IdeasStreamWidget";
+export { default as ChatWidgetEmbed } from "./experimental/ChatWidgetEmbed";
+
 export type { AdvancedRealTimeChartProps } from "./AdvancedRealTimeChart";
 export type { CompanyProfileProps } from "./CompanyProfile";
 export type { CryptoCurrencyMarketProps } from "./CryptoCurrencyMarket";
@@ -45,5 +49,9 @@ export type { TechnicalAnalysisProps } from "./TechnicalAnalysis";
 export type { TickerProps, TickerSymbol, TickerSymbols } from "./Ticker";
 export type { TickerTapeProps, TickerTapeSymbol } from "./TickerTape";
 export type { TimelineProps } from "./Timeline";
+
+export type { EventsWidgetProps } from "./experimental/EventsWidget";
+export type { IdeasStreamWidgetProps } from "./experimental/IdeasStreamWidget";
+export type { ChatWidgetEmbedProps } from "./experimental/ChatWidgetEmbed";
 
 export type { CopyrightProps } from "./Copyright";

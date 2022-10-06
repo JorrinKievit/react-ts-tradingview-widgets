@@ -18,6 +18,10 @@ export { Ticker } from "./components";
 export { TickerTape } from "./components";
 export { Timeline } from "./components";
 
+export { EventsWidget } from "./components";
+export { IdeasStreamWidget } from "./components";
+export { ChatWidgetEmbed } from "./components";
+
 export type { AdvancedRealTimeChartProps } from "./components";
 export type { CompanyProfileProps } from "./components";
 export type { CryptoCurrencyMarketProps } from "./components";
@@ -45,6 +49,11 @@ export type { TechnicalAnalysisProps } from "./components";
 export type { TickerProps, TickerSymbol, TickerSymbols } from "./components";
 export type { TickerTapeProps, TickerTapeSymbol } from "./components";
 export type { TimelineProps } from "./components";
+
+export type { EventsWidgetProps } from "./components";
+export type { IdeasStreamWidgetProps } from "./components";
+export type { ChatWidgetEmbedProps } from "./components";
+
 export type { CopyrightProps } from "./components";
 
 export type ColorTheme = "light" | "dark";
