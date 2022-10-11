@@ -2,8 +2,6 @@
 sidebar_position: 3
 ---
 
-## Copyright attribute
-
 Every component has an attribute under the chart linked to the original TradingView website. This is required by TradingView.
 
 ### Customizing the attribute
