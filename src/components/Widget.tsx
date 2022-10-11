@@ -22,13 +22,14 @@ const Widget: React.FC<WidgetProps> = ({
 
     if (ref.current) {
       const script = document.createElement("script");
+      script.setAttribute("data-nscript", "afterInteractive");
       script.src = scriptSRC;
       script.async = true;
       script.type = "text/javascript";
 
       if (type === "Widget" || type === "MediumWidget") {
-        if (typeof TradingView !== undefined) {
-          script.onload = () => {
+        script.onload = () => {
+          if (typeof TradingView !== undefined) {
             script.innerHTML = JSON.stringify(
               type === "Widget"
                 ? new TradingView.widget(scriptHTML)
@@ -36,8 +37,8 @@ const Widget: React.FC<WidgetProps> = ({
                 ? new TradingView.MediumWidget(scriptHTML)
                 : undefined
             );
-          };
-        }
+          }
+        };
       } else {
         script.innerHTML = JSON.stringify(scriptHTML);
       }
@@ -51,7 +52,7 @@ const Widget: React.FC<WidgetProps> = ({
         }
       }
     };
-  }, [ref, scriptHTML]);
+  }, [ref, scriptHTML, type, scriptSRC]);
 
   return <div ref={ref} id={containerId} />;
 };
