@@ -26,8 +26,8 @@ export type TimelineProps = {
   colorTheme?: ColorTheme;
   isTransparent?: boolean;
   displayMode?: DisplayMode;
-  width?: number | number;
-  height?: number | number;
+  width?: number | string;
+  height?: number | string;
   autosize?: boolean;
   locale?: Locales;
   largeChartUrl?: string;

@@ -15,8 +15,8 @@ export type TechnicalAnalysisProps = {
     | "1D"
     | "1W"
     | "1M";
-  width?: number | number;
-  height?: number | number;
+  width?: number | string;
+  height?: number | string;
   autosize?: boolean;
   isTransparent?: boolean;
   symbol?: string;
@@ -46,7 +46,8 @@ const TechnicalAnalysis: React.FC<TechnicalAnalysisProps> = ({
 }) => {
   return (
     <div id="tradingview_widget_wrapper">
-      <Widget scriptHTML={{
+      <Widget
+        scriptHTML={{
           interval,
           ...(!autosize ? { width } : { width: "100%" }),
           ...(!autosize ? { height } : { height: "100%" }),
@@ -57,7 +58,9 @@ const TechnicalAnalysis: React.FC<TechnicalAnalysisProps> = ({
           colorTheme,
           largeChartUrl,
           ...props,
-        }} scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js"></Widget>
+        }}
+        scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js"
+      ></Widget>
       <Copyright
         copyrightStyles={copyrightStyles}
         href={`https://www.tradingview.com/symbols/${symbol.replace(
