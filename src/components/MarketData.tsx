@@ -15,8 +15,8 @@ export interface MarketDataSymbolsGroup {
 }
 
 export interface MarketDataProps {
-  width?: number | number;
-  height?: number | number;
+  width?: number | string;
+  height?: number | string;
   autosize?: boolean;
   symbolsGroups?: MarketDataSymbolsGroup[];
   showSymbolLogo?: boolean;
