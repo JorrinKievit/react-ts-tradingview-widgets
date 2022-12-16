@@ -54,6 +54,7 @@ export type SymbolOverviewProps = {
   container_id?: string;
 
   children?: never;
+  hideDateRanges?: boolean;
 
   copyrightStyles?: CopyrightStyles;
 };
@@ -99,6 +100,7 @@ const SymbolOverview: React.FC<SymbolOverviewProps> = ({
   autosize = false,
   container_id = `tradingview_${createId(5)}`,
   copyrightStyles,
+  hideDateRanges,
   ...props
 }) => {
   return (
@@ -133,6 +135,7 @@ const SymbolOverview: React.FC<SymbolOverviewProps> = ({
           }),
           autosize,
           container_id,
+          hideDateRanges,
           ...props,
         }}
         scriptSRC="https://s3.tradingview.com/tv.js"
