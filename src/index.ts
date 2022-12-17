@@ -51,9 +51,25 @@ export type ColorTheme = "light" | "dark";
 
 export type DateRange = "1D" | "1M" | "3M" | "12M" | "60M" | "ALL";
 
+export type DateFormat =
+  | "dd MMM 'yy"
+  | "MMM dd, yyyy"
+  | "MMM dd"
+  | "dd MMM"
+  | "yyyy-MM-dd"
+  | "yy-MM-dd"
+  | "yy/MM/dd"
+  | "yyyy/MM/dd"
+  | "dd-MM-yyyy"
+  | "dd-MM-yy"
+  | "dd/MM/yy"
+  | "dd/MM/yyyy"
+  | "MM/dd/yy"
+  | "MM/dd/yyyy";
+
 export type DisplayMode = "regular" | "compact" | "adaptive";
 
-export type ChartType = "area" | "bars" | "candlesticks";
+export type ChartType = "line" | "area" | "bars" | "candlesticks";
 
 export type ScalePosition = "no" | "left" | "right";
 

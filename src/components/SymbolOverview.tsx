@@ -3,6 +3,7 @@ import {
   ChartType,
   ColorTheme,
   CopyrightStyles,
+  DateFormat,
   Locales,
   ScaleMode,
   ScalePosition,
@@ -18,8 +19,6 @@ export type SymbolOverviewProps = {
   height?: string | number;
   locale?: Locales;
   colorTheme?: ColorTheme;
-  gridLineColor?: string;
-  fontColor?: string;
   isTransparent?: boolean;
   showFloatingTooltip?: boolean;
   scalePosition?: ScalePosition;
@@ -32,11 +31,36 @@ export type SymbolOverviewProps = {
     | "Courier New, monospace"
     | "Comic Sans MS, Comic Sans, cursive"
     | "Trattatello, fantasy";
+  fontSize?:
+    | "10"
+    | "11"
+    | "12"
+    | "13"
+    | "14"
+    | "16"
+    | "18"
+    | "20"
+    | "22"
+    | "24"
+    | "28";
+  fontColor?: string;
   noTimeScale?: boolean;
+  hideDateRanges?: boolean;
+  hideMarketStatus?: boolean;
+  valuesTracking?: "0" | "1" | "2" | "3";
+  lineWidth?: 1 | 2 | 3 | 4;
+  showVolume?: boolean;
+  volumeUpColor?: string;
+  volumeDownColor?: string;
+  dateFormat: DateFormat;
+  timeHoursFormat?: "12-hours" | "24-hours";
+
   chartType?: ChartType;
 
-  //area
+  //area & line
   lineColor?: string;
+
+  //area
   bottomColor?: string;
   topColor?: string;
 
@@ -49,6 +73,11 @@ export type SymbolOverviewProps = {
   borderDownColor?: string;
   wickUpColor?: string;
   wickDownColor?: string;
+
+  //colors
+  backGroundColor?: string;
+  gridLineColor?: string;
+  widgetFontColor?: string;
 
   autosize?: boolean;
   container_id?: string;
@@ -71,14 +100,23 @@ const SymbolOverview: React.FC<SymbolOverviewProps> = ({
   height = 400,
   locale = "en",
   colorTheme = "light",
-  gridLineColor = "rgba(42, 46, 57, 0)",
   fontColor = "#787B86",
+  fontSize = "10",
   isTransparent = false,
   showFloatingTooltip = true,
   scalePosition = "no",
   scaleMode = "Normal",
   fontFamily = "Trebuchet MS, sans-serif",
   noTimeScale = false,
+  valuesTracking = "1",
+  lineWidth = 3,
+  showVolume = false,
+  volumeUpColor = "rgba(34, 171, 148, 0.5)",
+  volumeDownColor = "rgba(247, 82, 95, 0.5)",
+  dateFormat = "dd MMM 'yy",
+  timeHoursFormat = "24-hours",
+  hideMarketStatus = false,
+  hideDateRanges = false,
   chartType = "area",
 
   //area
@@ -96,6 +134,10 @@ const SymbolOverview: React.FC<SymbolOverviewProps> = ({
   wickUpColor = "#26a69a",
   wickDownColor = "#ef5350",
 
+  backGroundColor = "rgba(19, 23, 34, 0)",
+  gridLineColor = "rgba(42, 46, 57, 0)",
+  widgetFontColor = "rgba(216, 216, 216, 1)",
+
   autosize = false,
   container_id = `tradingview_${createId(5)}`,
   copyrightStyles,
@@ -111,26 +153,40 @@ const SymbolOverview: React.FC<SymbolOverviewProps> = ({
           ...(!autosize ? { height } : { height: "100%" }),
           locale,
           colorTheme,
-          gridLineColor,
           fontColor,
+          fontSize,
           isTransparent,
           showFloatingTooltip,
           scalePosition,
           scaleMode,
           fontFamily,
           noTimeScale,
+          hideDateRanges,
+          hideMarketStatus,
+          valuesTracking,
+          lineWidth,
+          showVolume,
+          ...(showVolume && { volumeUpColor, volumeDownColor }),
+          dateFormat,
+          timeHoursFormat,
           chartType,
+          ...(chartType === "line" && { lineColor }),
           ...(chartType === "area" && { lineColor, bottomColor, topColor }),
           ...((chartType === "bars" || chartType === "candlesticks") && {
             upColor,
             downColor,
           }),
           ...(chartType === "candlesticks" && {
+            upColor,
+            downColor,
             borderUpColor,
             borderDownColor,
             wickUpColor,
             wickDownColor,
           }),
+          backGroundColor,
+          widgetFontColor,
+          gridLineColor,
           autosize,
           container_id,
           ...props,
