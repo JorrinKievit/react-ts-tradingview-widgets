@@ -6,7 +6,6 @@ import {
   Locales,
   Market,
 } from "../index";
-import Copyright from "./Copyright";
 import Widget from "./Widget";
 
 type ConditionalTimelineProps =
@@ -93,32 +92,30 @@ const Timeline: React.FC<TimelineProps> = ({
   }, [feedMode, symbol, market]);
 
   return (
-    <div id="tradingview_widget_wrapper">
-      <Widget
-        scriptHTML={{
-          ...(!autosize ? { width } : { width: "100%" }),
-          ...(!autosize ? { height } : { height: "100%" }),
-          feedMode,
-          ...(feedMode == "market"
-            ? { market }
-            : feedMode == "symbol"
-            ? { symbol }
-            : {}),
-          colorTheme,
-          isTransparent,
-          displayMode,
-          locale,
-          largeChartUrl,
-          ...props,
-        }}
-        scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js"
-      ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        href={`https://www.tradingview.com/${href}`}
-        spanText={spanText}
-      />
-    </div>
+    <Widget
+      scriptHTML={{
+        ...(!autosize ? { width } : { width: "100%" }),
+        ...(!autosize ? { height } : { height: "100%" }),
+        feedMode,
+        ...(feedMode == "market"
+          ? { market }
+          : feedMode == "symbol"
+          ? { symbol }
+          : {}),
+        colorTheme,
+        isTransparent,
+        displayMode,
+        locale,
+        largeChartUrl,
+        ...props,
+      }}
+      scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js"
+      copyrightProps={{
+        copyrightStyles,
+        href: `https://www.tradingview.com/${href}`,
+        spanText,
+      }}
+    />
   );
 };
 

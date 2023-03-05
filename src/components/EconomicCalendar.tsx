@@ -1,6 +1,5 @@
 import React from "react";
 import { ColorTheme, CopyrightStyles, Locales } from "../index";
-import Copyright from "./Copyright";
 import Widget from "./Widget";
 
 export type EconomicCalendarProps = {
@@ -31,26 +30,24 @@ const EconomicCalendar: React.FC<EconomicCalendarProps> = ({
   ...props
 }) => {
   return (
-    <div id="tradingview_widget_wrapper">
-      <Widget
-        scriptHTML={{
-          colorTheme,
-          isTransparent,
-          ...(!autosize ? { width } : { width: "100%" }),
-          ...(!autosize ? { height } : { height: "100%" }),
-          locale,
-          importanceFilter,
-          currencyFilter,
-          ...props,
-        }}
-        scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-events.js"
-      ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        href={`https://www.tradingview.com/markets/currencies/economic-calendar/`}
-        spanText={`Economic Calendar`}
-      />
-    </div>
+    <Widget
+      scriptHTML={{
+        colorTheme,
+        isTransparent,
+        ...(!autosize ? { width } : { width: "100%" }),
+        ...(!autosize ? { height } : { height: "100%" }),
+        locale,
+        importanceFilter,
+        currencyFilter,
+        ...props,
+      }}
+      scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-events.js"
+      copyrightProps={{
+        copyrightStyles,
+        href: `https://www.tradingview.com/markets/currencies/economic-calendar/`,
+        spanText: `Economic Calendar`,
+      }}
+    />
   );
 };
 

@@ -1,6 +1,5 @@
 import React from "react";
 import { ColorTheme, CopyrightStyles, Locales } from "../index";
-import Copyright from "./Copyright";
 import Widget from "./Widget";
 
 export type TechnicalAnalysisProps = {
@@ -45,31 +44,29 @@ const TechnicalAnalysis: React.FC<TechnicalAnalysisProps> = ({
   ...props
 }) => {
   return (
-    <div id="tradingview_widget_wrapper">
-      <Widget
-        scriptHTML={{
-          interval,
-          ...(!autosize ? { width } : { width: "100%" }),
-          ...(!autosize ? { height } : { height: "100%" }),
-          isTransparent,
-          symbol,
-          showIntervalTabs,
-          locale,
-          colorTheme,
-          largeChartUrl,
-          ...props,
-        }}
-        scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js"
-      ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        href={`https://www.tradingview.com/symbols/${symbol.replace(
+    <Widget
+      scriptHTML={{
+        interval,
+        ...(!autosize ? { width } : { width: "100%" }),
+        ...(!autosize ? { height } : { height: "100%" }),
+        isTransparent,
+        symbol,
+        showIntervalTabs,
+        locale,
+        colorTheme,
+        largeChartUrl,
+        ...props,
+      }}
+      scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js"
+      copyrightProps={{
+        copyrightStyles,
+        href: `https://www.tradingview.com/symbols/${symbol.replace(
           ":",
           "-"
-        )}/technicals/`}
-        spanText={`Technical Analysis for ${symbol}`}
-      />
-    </div>
+        )}/technicals/`,
+        spanText: `Technical Analysis for ${symbol}`,
+      }}
+    />
   );
 };
 

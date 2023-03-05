@@ -9,7 +9,6 @@ import {
   ScalePosition,
 } from "../index";
 import { createId } from "../utils";
-import Copyright from "./Copyright";
 import Widget from "./Widget";
 
 export type SymbolOverviewProps = {
@@ -144,63 +143,60 @@ const SymbolOverview: React.FC<SymbolOverviewProps> = ({
   ...props
 }) => {
   return (
-    <div id="tradingview_widget_wrapper">
-      <Widget
-        scriptHTML={{
-          symbols,
-          chartOnly,
-          ...(!autosize ? { width } : { width: "100%" }),
-          ...(!autosize ? { height } : { height: "100%" }),
-          locale,
-          colorTheme,
-          fontColor,
-          fontSize,
-          isTransparent,
-          showFloatingTooltip,
-          scalePosition,
-          scaleMode,
-          fontFamily,
-          noTimeScale,
-          hideDateRanges,
-          hideMarketStatus,
-          valuesTracking,
-          lineWidth,
-          showVolume,
-          ...(showVolume && { volumeUpColor, volumeDownColor }),
-          dateFormat,
-          timeHoursFormat,
-          chartType,
-          ...(chartType === "line" && { lineColor }),
-          ...(chartType === "area" && { lineColor, bottomColor, topColor }),
-          ...((chartType === "bars" || chartType === "candlesticks") && {
-            upColor,
-            downColor,
-          }),
-          ...(chartType === "candlesticks" && {
-            upColor,
-            downColor,
-            borderUpColor,
-            borderDownColor,
-            wickUpColor,
-            wickDownColor,
-          }),
-          backGroundColor,
-          widgetFontColor,
-          gridLineColor,
-          autosize,
-          container_id,
-          ...props,
-        }}
-        scriptSRC="https://s3.tradingview.com/tv.js"
-        containerId={container_id}
-        type="MediumWidget"
-      ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        href={`https://www.tradingview.com/symbols/${symbols[0][1]}`}
-        spanText={`${symbols[0][1]}`}
-      />
-    </div>
+    <Widget
+      scriptHTML={{
+        symbols,
+        chartOnly,
+        ...(!autosize ? { width } : { width: "100%" }),
+        ...(!autosize ? { height } : { height: "100%" }),
+        locale,
+        colorTheme,
+        fontColor,
+        fontSize,
+        isTransparent,
+        showFloatingTooltip,
+        scalePosition,
+        scaleMode,
+        fontFamily,
+        noTimeScale,
+        hideDateRanges,
+        hideMarketStatus,
+        valuesTracking,
+        lineWidth,
+        showVolume,
+        ...(showVolume && { volumeUpColor, volumeDownColor }),
+        dateFormat,
+        timeHoursFormat,
+        chartType,
+        ...(chartType === "line" && { lineColor }),
+        ...(chartType === "area" && { lineColor, bottomColor, topColor }),
+        ...((chartType === "bars" || chartType === "candlesticks") && {
+          upColor,
+          downColor,
+        }),
+        ...(chartType === "candlesticks" && {
+          upColor,
+          downColor,
+          borderUpColor,
+          borderDownColor,
+          wickUpColor,
+          wickDownColor,
+        }),
+        backGroundColor,
+        widgetFontColor,
+        gridLineColor,
+        autosize,
+        container_id,
+        ...props,
+      }}
+      scriptSRC="https://s3.tradingview.com/tv.js"
+      containerId={container_id}
+      type="MediumWidget"
+      copyrightProps={{
+        href: `https://www.tradingview.com/symbols/${symbols[0][1]}`,
+        spanText: `${symbols[0][1]}`,
+      }}
+    />
   );
 };
 

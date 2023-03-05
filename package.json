@@ -35,8 +35,7 @@
     "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0",
     "rollup": "^2.50.4",
-    "rollup-plugin-sass": "^1.2.2",
-    "rollup-plugin-typescript2": "^0.30.0",
+    "rollup-plugin-typescript2": "^0.31.0",
     "typescript": "^4.3.2"
   },
   "peerDependencies": {

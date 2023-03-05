@@ -1,10 +1,12 @@
-import React, { createRef, useEffect } from "react";
+import React, { useEffect } from "react";
+import Copyright, { CopyrightProps } from "./Copyright";
 
 interface WidgetProps {
   scriptHTML: any;
   scriptSRC: string;
   containerId?: string;
   type?: "Widget" | "MediumWidget";
+  copyrightProps: CopyrightProps;
 }
 
 declare const TradingView: any;
@@ -12,49 +14,57 @@ declare const TradingView: any;
 const Widget: React.FC<WidgetProps> = ({
   scriptHTML,
   scriptSRC,
-  containerId,
   type,
+  containerId,
+  copyrightProps,
 }) => {
-  const ref: { current: HTMLDivElement | null } = createRef();
-
   useEffect(() => {
-    let refValue: any;
+    const script = document.createElement("script");
+    script.setAttribute("data-nscript", "afterInteractive");
+    script.src = scriptSRC;
+    script.async = true;
+    script.type = "text/javascript";
 
-    if (ref.current) {
-      const script = document.createElement("script");
-      script.setAttribute("data-nscript", "afterInteractive");
-      script.src = scriptSRC;
-      script.async = true;
-      script.type = "text/javascript";
-
-      if (type === "Widget" || type === "MediumWidget") {
-        script.onload = () => {
-          if (typeof TradingView !== undefined) {
-            script.innerHTML = JSON.stringify(
-              type === "Widget"
-                ? new TradingView.widget(scriptHTML)
-                : type === "MediumWidget"
-                ? new TradingView.MediumWidget(scriptHTML)
-                : undefined
-            );
-          }
-        };
-      } else {
-        script.innerHTML = JSON.stringify(scriptHTML);
-      }
-      ref.current.appendChild(script);
-      refValue = ref.current;
-    }
-    return () => {
-      if (refValue) {
-        while (refValue.firstChild) {
-          refValue.removeChild(refValue.firstChild);
+    if (type === "Widget" || type === "MediumWidget") {
+      script.onload = () => {
+        if (typeof TradingView !== undefined) {
+          script.innerHTML = JSON.stringify(
+            type === "Widget"
+              ? new TradingView.widget(scriptHTML)
+              : type === "MediumWidget"
+              ? new TradingView.MediumWidget(scriptHTML)
+              : undefined
+          );
         }
-      }
-    };
-  }, [ref, scriptHTML, type, scriptSRC]);
+      };
+    } else {
+      script.innerHTML = JSON.stringify(scriptHTML);
+    }
 
-  return <div ref={ref} id={containerId} />;
+    const container = document.querySelector(
+      containerId ? `#${containerId}` : ".tradingview-widget-container__widget"
+    );
+
+    if (!container) return;
+
+    container.parentNode?.insertBefore(script, container);
+
+    return () => {
+      container.parentNode?.removeChild(script);
+    };
+  }, [scriptHTML, type, scriptSRC, containerId]);
+
+  return (
+    <div className="tradingview-widget-container">
+      <div
+        id={containerId}
+        className={
+          !containerId ? "tradingview-widget-container__widget" : undefined
+        }
+      />
+      <Copyright {...copyrightProps} />
+    </div>
+  );
 };
 
 export default Widget;

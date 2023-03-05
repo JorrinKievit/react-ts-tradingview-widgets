@@ -36,6 +36,7 @@ const Copyright: React.FC<CopyrightProps> = ({
   return (
     <div
       style={Object.assign({}, defaultStyles.parent, copyrightStyles?.parent)}
+      className="tradingview-widget-copyright"
     >
       <a
         style={Object.assign({}, defaultStyles.link, copyrightStyles?.link)}
