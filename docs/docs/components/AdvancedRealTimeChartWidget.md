@@ -67,5 +67,5 @@ import "../style.css"
 | watchlist           | string[]                                | false    | undefined                       | Show watchlist with added symbols                                                            |
 | studies             | string[]                                | false    | undefined                       | Add default indicators to chart                                                              |
 | disabled_features   | [_**WidgetFeatures[]**_](#public-types) | false    | undefined                       | Disable specific features in the chart                                                       |
-| disabled_features   | [_**WidgetFeatures[]**_](#public-types) | false    | undefined                       | Enable specific features in the chart                                                        |
+| enabled_features   | [_**WidgetFeatures[]**_](#public-types) | false    | undefined                       | Enable specific features in the chart                                                        |
 | container_id        | string                                  | false    | advanced-chart-widget-container | Set container_id generated [here](https://www.tradingview.com/widget/advanced-chart/)        |
