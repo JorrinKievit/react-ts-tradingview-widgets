@@ -151,8 +151,6 @@ export type Timezone =
   | "America/Bogota"
   | "America/Chicago"
   | "America/Mexico_City"
-  | "America/El_Salvador"
-  | "America/Bogota"
   | "America/Lima"
   | "America/Caracas"
   | "America/New_York"
