@@ -151,8 +151,6 @@ export type Timezone =
   | "America/Bogota"
   | "America/Chicago"
   | "America/Mexico_City"
-  | "America/El_Salvador"
-  | "America/Bogota"
   | "America/Lima"
   | "America/Caracas"
   | "America/New_York"
@@ -217,7 +215,20 @@ export type Timezone =
   | "Pacific/Norfolk"
   | "Pacific/Auckland"
   | "Pacific/Fakaofo"
-  | "Pacific/Chatham";
+  | "Pacific/Chatham"
+  | "Africa/Cairo"
+  | "Africa/Casablanca"
+  | "America/Anchorage"
+  | "Asia/Colombo"
+  | "Asia/Dhaka"
+  | "Asia/Ho_Chi_Minh"
+  | "Asia/Karachi"
+  | "Asia/Kathmandu"
+  | "Asia/Nicosia"
+  | "Asia/Yangon"
+  | "Europe/Bratislava"
+  | "Europe/Bucharest"
+  | "Europe/Budapest";
 
 export type Studies =
   | "ACCD@tv-basicstudies"
