@@ -2,14 +2,14 @@ import React, { createRef, useEffect } from "react";
 import Copyright, { CopyrightProps } from "./Copyright";
 
 interface WidgetProps {
-  scriptHTML: any;
+  scriptHTML: unknown;
   scriptSRC: string;
   containerId?: string;
   type?: "Widget" | "MediumWidget";
   copyrightProps: CopyrightProps;
 }
 
-declare const TradingView: any;
+declare const TradingView: any
 
 const Widget: React.FC<WidgetProps> = ({
   scriptHTML,
@@ -21,7 +21,7 @@ const Widget: React.FC<WidgetProps> = ({
   const ref: { current: HTMLDivElement | null } = createRef();
 
   useEffect(() => {
-    let refValue: any;
+    let refValue: HTMLDivElement;
 
     const initWidget = () => {
       if (ref.current) {
