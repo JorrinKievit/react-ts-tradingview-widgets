@@ -1,6 +1,5 @@
 import React from "react";
 import { ColorTheme, Currencies, CopyrightStyles, Locales } from "../index";
-import Copyright from "./Copyright";
 import Widget from "./Widget";
 
 export type ForexCrossRatesProps = {
@@ -43,26 +42,24 @@ const ForexCrossRates: React.FC<ForexCrossRatesProps> = ({
   ...props
 }) => {
   return (
-    <div id="tradingview_widget_wrapper">
-      <Widget
-        scriptHTML={{
-          ...(!autosize ? { width } : { width: "100%" }),
-          ...(!autosize ? { height } : { height: "100%" }),
-          currencies,
-          isTransparent,
-          colorTheme,
-          locale,
-          largeChartUrl,
-          ...props,
-        }}
-        scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js"
-      ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        href={`https://www.tradingview.com/markets/currencies/forex-cross-rates/`}
-        spanText={`Exchange Rates`}
-      />
-    </div>
+    <Widget
+      scriptHTML={{
+        ...(!autosize ? { width } : { width: "100%" }),
+        ...(!autosize ? { height } : { height: "100%" }),
+        currencies,
+        isTransparent,
+        colorTheme,
+        locale,
+        largeChartUrl,
+        ...props,
+      }}
+      scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js"
+      copyrightProps={{
+        copyrightStyles,
+        href: `https://www.tradingview.com/markets/currencies/forex-cross-rates/`,
+        spanText: `Exchange Rates`,
+      }}
+    />
   );
 };
 

@@ -1,6 +1,5 @@
 import React from "react";
 import { ColorTheme, CopyrightStyles, Locales } from "../index";
-import Copyright from "./Copyright";
 import Widget from "./Widget";
 
 export type CompanyProfileProps = {
@@ -31,26 +30,24 @@ const CompanyProfile: React.FC<CompanyProfileProps> = ({
   ...props
 }) => {
   return (
-    <div id="tradingview_widget_wrapper">
-      <Widget
-        scriptHTML={{
-          ...(!autosize ? { width } : { width: "100%" }),
-          ...(!autosize ? { height } : { height: "100%" }),
-          symbol,
-          colorTheme,
-          isTransparent,
-          locale,
-          largeChartUrl,
-          ...props,
-        }}
-        scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-symbol-profile.js"
-      ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        href={`https://www.tradingview.com/symbols/${symbol}/`}
-        spanText={`${symbol} Profile`}
-      />
-    </div>
+    <Widget
+      scriptHTML={{
+        ...(!autosize ? { width } : { width: "100%" }),
+        ...(!autosize ? { height } : { height: "100%" }),
+        symbol,
+        colorTheme,
+        isTransparent,
+        locale,
+        largeChartUrl,
+        ...props,
+      }}
+      scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-symbol-profile.js"
+      copyrightProps={{
+        copyrightStyles,
+        href: `https://www.tradingview.com/symbols/${symbol}/`,
+        spanText: `${symbol} Profile`,
+      }}
+    />
   );
 };
 

@@ -73,10 +73,10 @@ module.exports = {
     },
     algolia: {
       // The application ID provided by Algolia
-      appId: "8UVCPM1TIP",
+      appId: "JETDVO4P5F",
 
       // Public API key: it is safe to commit it
-      apiKey: "7f37b9c8d380be34758062e1bfb7d7ad",
+      apiKey: "28f639891a1a43f336301b7854cbf1c6",
 
       indexName: "react-ts-tradingview-widgets",
 

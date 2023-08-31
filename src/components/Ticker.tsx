@@ -1,6 +1,5 @@
 import React from "react";
 import { ColorTheme, CopyrightStyles, Locales } from "../index";
-import Copyright from "./Copyright";
 import Widget from "./Widget";
 
 export type TickerProps = {
@@ -55,24 +54,22 @@ const Ticker: React.FC<TickerProps> = ({
   ...props
 }) => {
   return (
-    <div id="tradingview_widget_wrapper">
-      <Widget
-        scriptHTML={{
-          colorTheme,
-          isTransparent,
-          showSymbolLogo,
-          locale,
-          symbols,
-          ...props,
-        }}
-        scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js"
-      ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        href={`https://www.tradingview.com/`}
-        spanText={`Qoutes`}
-      />
-    </div>
+    <Widget
+      scriptHTML={{
+        colorTheme,
+        isTransparent,
+        showSymbolLogo,
+        locale,
+        symbols,
+        ...props,
+      }}
+      scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js"
+      copyrightProps={{
+        copyrightStyles,
+        href: `https://www.tradingview.com/`,
+        spanText: `Quotes`,
+      }}
+    />
   );
 };
 

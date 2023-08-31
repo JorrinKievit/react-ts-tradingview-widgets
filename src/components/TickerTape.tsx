@@ -1,6 +1,6 @@
 import React from "react";
 import { ColorTheme, CopyrightStyles, DisplayMode, Locales } from "../index";
-import Copyright from "./Copyright";
+// import Copyright from "./Copyright";
 import Widget from "./Widget";
 
 export interface TickerTapeSymbol {
@@ -57,26 +57,24 @@ const TickerTape: React.FC<TickerTapeProps> = ({
   ...props
 }) => {
   return (
-    <div id="tradingview_widget_wrapper">
-      <Widget
-        scriptHTML={{
-          symbols,
-          showSymbolLogo,
-          colorTheme,
-          isTransparent,
-          largeChartUrl,
-          displayMode,
-          locale,
-          ...props,
-        }}
-        scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
-      ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        href={`https://www.tradingview.com/markets/`}
-        spanText={`Markets`}
-      />
-    </div>
+    <Widget
+      scriptHTML={{
+        symbols,
+        showSymbolLogo,
+        colorTheme,
+        isTransparent,
+        largeChartUrl,
+        displayMode,
+        locale,
+        ...props,
+      }}
+      scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+      copyrightProps={{
+        copyrightStyles,
+        href: "https://www.tradingview.com/markets/",
+        spanText: "Markets",
+      }}
+    />
   );
 };
 

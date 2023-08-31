@@ -1,6 +1,5 @@
 import React from "react";
 import { ColorTheme, DateRange, CopyrightStyles, Locales } from "../index";
-import Copyright from "./Copyright";
 import Widget from "./Widget";
 
 export type MiniChartProps = {
@@ -39,31 +38,29 @@ const MiniChart: React.FC<MiniChartProps> = ({
   ...props
 }) => {
   return (
-    <div id="tradingview_widget_wrapper">
-      <Widget
-        scriptHTML={{
-          symbol,
-          ...(!autosize ? { width } : { width: "100%" }),
-          ...(!autosize ? { height } : { height: "100%" }),
-          locale,
-          dateRange,
-          colorTheme,
-          trendLineColor,
-          underLineColor,
-          underLineBottomColor,
-          isTransparent,
-          autosize,
-          largeChartUrl,
-          ...props,
-        }}
-        scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js"
-      ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        href={`https://www.tradingview.com/symbols/${symbol}/`}
-        spanText={`${symbol} Rates`}
-      />
-    </div>
+    <Widget
+      scriptHTML={{
+        symbol,
+        ...(!autosize ? { width } : { width: "100%" }),
+        ...(!autosize ? { height } : { height: "100%" }),
+        locale,
+        dateRange,
+        colorTheme,
+        trendLineColor,
+        underLineColor,
+        underLineBottomColor,
+        isTransparent,
+        autosize,
+        largeChartUrl,
+        ...props,
+      }}
+      scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js"
+      copyrightProps={{
+        copyrightStyles,
+        href: `https://www.tradingview.com/symbols/${symbol}/`,
+        spanText: `${symbol} Rates`,
+      }}
+    />
   );
 };
 

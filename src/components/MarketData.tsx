@@ -1,6 +1,5 @@
 import React from "react";
 import { ColorTheme, CopyrightStyles, Locales } from "../index";
-import Copyright from "./Copyright";
 import Widget from "./Widget";
 
 export interface MarketDataSymbol {
@@ -161,27 +160,25 @@ const MarketData: React.FC<MarketDataProps> = ({
   ...props
 }) => {
   return (
-    <div id="tradingview_widget_wrapper">
-      <Widget
-        scriptHTML={{
-          ...(!autosize ? { width } : { width: "100%" }),
-          ...(!autosize ? { height } : { height: "100%" }),
-          symbolsGroups,
-          showSymbolLogo,
-          colorTheme,
-          isTransparent,
-          locale,
-          largeChartUrl,
-          ...props,
-        }}
-        scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js"
-      ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        spanText={`Financial Markets`}
-        href="https://www.tradingview.com/markets/"
-      />
-    </div>
+    <Widget
+      scriptHTML={{
+        ...(!autosize ? { width } : { width: "100%" }),
+        ...(!autosize ? { height } : { height: "100%" }),
+        symbolsGroups,
+        showSymbolLogo,
+        colorTheme,
+        isTransparent,
+        locale,
+        largeChartUrl,
+        ...props,
+      }}
+      scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js"
+      copyrightProps={{
+        copyrightStyles,
+        spanText: `Financial Markets`,
+        href: "https://www.tradingview.com/markets/",
+      }}
+    />
   );
 };
 

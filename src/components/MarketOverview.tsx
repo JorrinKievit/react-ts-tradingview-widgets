@@ -1,6 +1,5 @@
 import React from "react";
 import { ColorTheme, DateRange, CopyrightStyles, Locales } from "../index";
-import Copyright from "./Copyright";
 import Widget from "./Widget";
 
 export type MarketOverviewSymbol = {
@@ -185,41 +184,39 @@ const MarketOverview: React.FC<MarketOverviewProps> = ({
   ...props
 }) => {
   return (
-    <div id="tradingview_widget_wrapper">
-      <Widget
-        scriptHTML={{
-          colorTheme,
-          dateRange,
-          showChart,
-          locale,
-          largeChartUrl,
-          isTransparent,
-          showSymbolLogo,
-          showFloatingTooltip,
-          ...(!autosize ? { width } : { width: "100%" }),
-          ...(!autosize ? { height } : { height: "100%" }),
-          ...(showChart && {
-            plotLineColorGrowing,
-            plotLineColorFalling,
-            gridLineColor,
-            scaleFontColor,
-            belowLineFillColorGrowing,
-            belowLineFillColorFalling,
-            belowLineFillColorGrowingBottom,
-            belowLineFillColorFallingBottom,
-            symbolActiveColor,
-          }),
-          tabs,
-          ...props,
-        }}
-        scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
-      ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        spanText={`Financial Markets`}
-        href="https://www.tradingview.com/markets/"
-      />
-    </div>
+    <Widget
+      scriptHTML={{
+        colorTheme,
+        dateRange,
+        showChart,
+        locale,
+        largeChartUrl,
+        isTransparent,
+        showSymbolLogo,
+        showFloatingTooltip,
+        ...(!autosize ? { width } : { width: "100%" }),
+        ...(!autosize ? { height } : { height: "100%" }),
+        ...(showChart && {
+          plotLineColorGrowing,
+          plotLineColorFalling,
+          gridLineColor,
+          scaleFontColor,
+          belowLineFillColorGrowing,
+          belowLineFillColorFalling,
+          belowLineFillColorGrowingBottom,
+          belowLineFillColorFallingBottom,
+          symbolActiveColor,
+        }),
+        tabs,
+        ...props,
+      }}
+      scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
+      copyrightProps={{
+        copyrightStyles,
+        spanText: `Financial Markets`,
+        href: "https://www.tradingview.com/markets/",
+      }}
+    />
   );
 };
 
