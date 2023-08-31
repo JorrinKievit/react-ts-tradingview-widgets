@@ -48,6 +48,7 @@ const MiniChart: React.FC<MiniChartProps> = ({
         colorTheme,
         trendLineColor,
         underLineColor,
+        underLineBottomColor,
         isTransparent,
         autosize,
         largeChartUrl,
