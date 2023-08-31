@@ -9,7 +9,7 @@ interface WidgetProps {
   copyrightProps: CopyrightProps;
 }
 
-declare const TradingView: any
+declare const TradingView: any;
 
 const Widget: React.FC<WidgetProps> = ({
   scriptHTML,
