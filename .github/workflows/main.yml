@@ -22,6 +22,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   publish_docs:
+    needs: publish_package
     name: Deploy docs to GitHub Pages
     runs-on: ubuntu-latest
     defaults:
