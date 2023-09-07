@@ -16,7 +16,7 @@ import { CryptoCoinsHeatmap } from "react-ts-tradingview-widgets";
 
 import { CryptoCoinsHeatmap } from "react-ts-tradingview-widgets";
 
-<CryptoCoinsHeatmap colorTheme="dark"></CryptoCoinsHeatmap>
+<CryptoCoinsHeatmap colorTheme="dark" width={700} height={500}></CryptoCoinsHeatmap>
 
 ## Used Private types {#private-types}
 

@@ -16,7 +16,7 @@ import { StockHeatmap } from "react-ts-tradingview-widgets";
 
 import { StockHeatmap } from "react-ts-tradingview-widgets";
 
-<StockHeatmap colorTheme="dark"></StockHeatmap>
+<StockHeatmap colorTheme="dark" width={700} height={500}></StockHeatmap>
 
 ## Used Private types {#private-types}
 
