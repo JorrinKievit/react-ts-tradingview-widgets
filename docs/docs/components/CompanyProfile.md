@@ -34,5 +34,5 @@ import { CompanyProfile } from "react-ts-tradingview-widgets";
 | autosize      | boolean                           | false    | false       | Sets the width and height to 100%     |
 | colorTheme    | [_**ColorTheme**_](#public-types) | false    | light       | Sets the default theme                |
 | isTransparent | boolean                           | false    | false       | Transparent background for component  |
-| locale        | string                            | false    | en          | Sets the default locale               |
+| locale        | [Locales](../types/Locales.md)    | false    | en          | Sets the default locale               |
 | largeChartUrl | string                            | false    | undefined   | Make widget redirect to larger chart  |

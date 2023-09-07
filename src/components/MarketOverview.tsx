@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { ColorTheme, DateRange, CopyrightStyles, Locales } from "../index";
 import Widget from "./Widget";
 
@@ -220,4 +220,4 @@ const MarketOverview: React.FC<MarketOverviewProps> = ({
   );
 };
 
-export default MarketOverview;
+export default memo(MarketOverview);

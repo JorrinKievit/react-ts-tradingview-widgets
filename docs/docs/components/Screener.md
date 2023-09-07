@@ -49,6 +49,6 @@ The defaultColumn and defaultScreen properties are different based on the choice
 | defaultScreen | [_**DefaultScreenCountries**_ or _**DefaultScreenForexOrCrypto**_](#private-types) | false    | general   | Sets default screens                  |
 | showToolbar   | boolean                                                                            | false    | true      | Sets default Show top toolbar         |
 | colorTheme    | [_**ColorTheme**_](#public-types)                                                  | false    | light     | Sets the default theme                |
-| locale        | string                                                                             | false    | en        | Sets the default locale               |
+| locale        | [Locales](../types/Locales.md)                                                     | false    | en        | Sets the default locale               |
 | isTransparent | boolean                                                                            | false    | false     | Transparent background for component  |
 | largeChartUrl | string                                                                             | false    | undefined | Make widget redirect to larger chart  |

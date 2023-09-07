@@ -30,7 +30,7 @@ import { SymbolInfo } from "react-ts-tradingview-widgets";
 | ------------- | --------------------------------- | -------- | ----------- | ------------------------------------ |
 | symbol        | string                            | false    | NASDAQ:AAPL | Sets the default ticker symbol       |
 | width         | number/string                     | false    | 1000        | Sets a static width on the component |
-| locale        | string                            | false    | en          | Sets the default locale              |
+| locale        | [Locales](../types/Locales.md)    | false    | en          | Sets the default locale              |
 | colorTheme    | [_**ColorTheme**_](#public-types) | false    | light       | Sets the default theme               |
 | isTransparent | boolean                           | false    | false       | Transparent background for component |
 | largeChartUrl | string                            | false    | undefined   | Make widget redirect to larger chart |

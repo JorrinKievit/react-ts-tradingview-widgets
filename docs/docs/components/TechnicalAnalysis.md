@@ -41,6 +41,6 @@ import { TechnicalAnalysis } from "react-ts-tradingview-widgets";
 | isTransparent    | boolean                           | false    | false       | Transparent background for component  |
 | symbol           | string                            | false    | NASDAQ:AAPL | Sets the default ticker symbol        |
 | showIntervalTabs | boolean                           | false    | true        | Show the interval tabs                |
-| locale           | string                            | false    | en          | Sets the default locale               |
+| locale           | [Locales](../types/Locales.md)    | false    | en          | Sets the default locale               |
 | colorTheme       | [_**ColorTheme**_](#public-types) | false    | light       | Sets the default theme                |
 | largeChartUrl    | string                            | false    | undefined   | Make widget redirect to larger chart  |

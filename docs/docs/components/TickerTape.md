@@ -36,7 +36,7 @@ import { TickerTape } from "react-ts-tradingview-widgets";
 | isTransparent  | boolean                                | false    | false                      | Transparent background for component |
 | largeChartUrl  | string                                 | false    | undefined                  | Make widget redirect to larger chart |
 | displayMode    | [_**DisplayMode**_](#public-types)     | false    | adaptive                   | Sets default display mode            |
-| locale         | string                                 | false    | en                         | Sets the default locale              |
+| locale         | [Locales](../types/Locales.md)         | false    | en                         | Sets the default locale              |
 
 ## TickerTapeSymbol {#ticker-symbol}
 

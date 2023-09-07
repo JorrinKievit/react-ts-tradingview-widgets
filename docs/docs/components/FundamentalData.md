@@ -37,4 +37,4 @@ import { FundamentalData } from "react-ts-tradingview-widgets";
 | width         | number/string                      | false    | 480         | Sets a static width on the component  |
 | height        | number/string                      | false    | 830         | Sets a static height on the component |
 | autosize      | boolean                            | false    | false       | Sets the width and height to 100%     |
-| locale        | string                             | false    | en          | Sets the default locale               |
+| locale        | [Locales](../types/Locales.md)     | false    | en          | Sets the default locale               |

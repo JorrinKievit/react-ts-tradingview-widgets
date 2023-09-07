@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { ColorTheme, CopyrightStyles, DisplayMode, Locales } from "../index";
 import Widget from "./Widget";
 
@@ -57,4 +57,4 @@ const FundamentalData: React.FC<FundamentalDataProps> = ({
   );
 };
 
-export default FundamentalData;
+export default memo(FundamentalData);

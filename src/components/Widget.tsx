@@ -16,7 +16,7 @@ const Widget: React.FC<WidgetProps> = ({
   scriptSRC,
   containerId,
   type,
-  copyrightProps
+  copyrightProps,
 }) => {
   const ref: { current: HTMLDivElement | null } = createRef();
 
@@ -46,12 +46,12 @@ const Widget: React.FC<WidgetProps> = ({
         } else {
           script.innerHTML = JSON.stringify(scriptHTML);
         }
-        if (!ref.current.querySelector('script[src="'+scriptSRC+'"]')) {
-          ref.current.appendChild(script); 
+        if (!ref.current.querySelector('script[src="' + scriptSRC + '"]')) {
+          ref.current.appendChild(script);
         }
         refValue = ref.current;
       }
-    }
+    };
     requestAnimationFrame(initWidget);
 
     return () => {
@@ -63,7 +63,17 @@ const Widget: React.FC<WidgetProps> = ({
     };
   }, [ref, scriptHTML, type, scriptSRC]);
 
-  return <><div ref={ref} id={containerId} /><Copyright href={copyrightProps.href} spanText={copyrightProps.spanText} text={copyrightProps.text} copyrightStyles={copyrightProps.copyrightStyles} /></>
+  return (
+    <>
+      <div ref={ref} id={containerId} />
+      <Copyright
+        href={copyrightProps.href}
+        spanText={copyrightProps.spanText}
+        text={copyrightProps.text}
+        copyrightStyles={copyrightProps.copyrightStyles}
+      />
+    </>
+  );
 };
 
 export default Widget;

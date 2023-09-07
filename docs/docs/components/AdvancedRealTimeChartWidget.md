@@ -49,7 +49,7 @@ import "../style.css"
 | timezone            | string                                  | false    | UTC                             | Sets the default timezone                                                                    |
 | theme               | [_**ColorTheme**_](#public-types)       | false    | light                           | Sets the default theme                                                                       |
 | style               | Style                                   | false    | 1                               | Sets the default [style](https://www.tradingview.com/widget/advanced-chart/) (Bars, Candles) |
-| locale              | string                                  | false    | en                              | Sets the default locale                                                                      |
+| locale              | [Locales](../types/Locales.md)          | false    | en                              | Sets the default locale                                                                      |
 | toolbar_bg          | string                                  | false    | #f1f3f6                         | Sets the default toolbar background                                                          |
 | enable_publishing   | boolean                                 | false    | false                           | Show the publishing button on the chart                                                      |
 | hide_top_toolbar    | boolean                                 | false    | false                           | Hide top toolbar                                                                             |
@@ -67,5 +67,5 @@ import "../style.css"
 | watchlist           | string[]                                | false    | undefined                       | Show watchlist with added symbols                                                            |
 | studies             | string[]                                | false    | undefined                       | Add default indicators to chart                                                              |
 | disabled_features   | [_**WidgetFeatures[]**_](#public-types) | false    | undefined                       | Disable specific features in the chart                                                       |
-| enabled_features   | [_**WidgetFeatures[]**_](#public-types) | false    | undefined                       | Enable specific features in the chart                                                        |
+| enabled_features    | [_**WidgetFeatures[]**_](#public-types) | false    | undefined                       | Enable specific features in the chart                                                        |
 | container_id        | string                                  | false    | advanced-chart-widget-container | Set container_id generated [here](https://www.tradingview.com/widget/advanced-chart/)        |

@@ -34,7 +34,7 @@ import { ForexCrossRates } from "react-ts-tradingview-widgets";
 | currencies    | string[]                          | false    | See [_**here**_](#currencies) | Sets the default currencies           |
 | isTransparent | boolean                           | false    | false                         | Transparent background for component  |
 | colorTheme    | [_**ColorTheme**_](#public-types) | false    | light                         | Sets the default theme                |
-| locale        | string                            | false    | en                            | Sets the default locale               |
+| locale        | [Locales](../types/Locales.md)    | false    | en                            | Sets the default locale               |
 | largeChartUrl | string                            | false    | undefined                     | Make widget redirect to larger chart  |
 
 ## Default currencies

@@ -43,5 +43,5 @@ import { CryptoCurrencyMarket } from "react-ts-tradingview-widgets";
 | screener_type   | crypto_mkt                             | false    | crypto_mkt | Sets screener_type (Its always crypto_mkt) |
 | displayCurrency | USD / BTC                              | false    | USD        | Sets default Display currency              |
 | colorTheme      | [_**ColorTheme**_](#public-types)      | false    | light      | Sets the default theme                     |
-| locale          | string                                 | false    | en         | Sets the default locale                    |
+| locale          | [Locales](../types/Locales.md)         | false    | en         | Sets the default locale                    |
 | isTransparent   | boolean                                | false    | false      | Transparent background for component       |

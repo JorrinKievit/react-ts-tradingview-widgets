@@ -31,7 +31,7 @@ import { Ticker } from "react-ts-tradingview-widgets";
 | ------------- | -------------------------------------- | -------- | -------------------------- | ------------------------------------ |
 | colorTheme    | [_**ColorTheme**_](#public-types)      | false    | light                      | Sets the default theme               |
 | isTransparent | boolean                                | false    | false                      | Transparent background for component |
-| locale        | string                                 | false    | en                         | Sets the default locale              |
+| locale        | [Locales](../types/Locales.md)         | false    | en                         | Sets the default locale              |
 | symbols       | [_**TickerSymbol[]**_](#ticker-symbol) | false    | See [_**Here**_](#tickers) | Default symbols in widget            |
 
 ## TickerSymbol {#ticker-symbol}

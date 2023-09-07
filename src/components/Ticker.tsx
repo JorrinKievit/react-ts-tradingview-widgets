@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { ColorTheme, CopyrightStyles, Locales } from "../index";
 import Widget from "./Widget";
 
@@ -73,4 +73,4 @@ const Ticker: React.FC<TickerProps> = ({
   );
 };
 
-export default Ticker;
+export default memo(Ticker);

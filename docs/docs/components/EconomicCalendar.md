@@ -39,6 +39,6 @@ import { EconomicCalendar } from "react-ts-tradingview-widgets";
 | width            | number/string                            | false    | 425       | Sets a static width on the component  |
 | height           | number/string                            | false    | 450       | Sets a static height on the component |
 | autosize         | boolean                                  | false    | false     | Sets the width and height to 100%     |
-| locale           | string                                   | false    | en        | Sets the default locale               |
+| locale           | [Locales](../types/Locales.md)           | false    | en        | Sets the default locale               |
 | importanceFilter | [_**ImportanceFilter**_](#private-types) | false    | -1,0,1    | High performance                      |
 | currencyFilter   | string                                   | false    | undefined | Default countries                     |

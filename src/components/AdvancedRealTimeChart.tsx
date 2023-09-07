@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import {
   ColorTheme,
   CopyrightStyles,
@@ -139,4 +139,4 @@ const AdvancedRealTimeChart: React.FC<AdvancedRealTimeChartProps> = ({
   );
 };
 
-export default AdvancedRealTimeChart;
+export default memo(AdvancedRealTimeChart);

@@ -34,7 +34,7 @@ import { MarketOverview } from "react-ts-tradingview-widgets";
 | colorTheme                      | [_**ColorTheme**_](#public-types) | false    | light                    | Sets the default theme                |
 | dateRange                       | [_**DateRange**_](#public-types)  | false    | 12M                      | Default date range of chart           |
 | showChart                       | boolean                           | false    | true                     | Show chart in overview                |
-| locale                          | string                            | false    | en                       | Sets the default locale               |
+| locale                          | [Locales](../types/Locales.md)    | false    | en                       | Sets the default locale               |
 | largeChartUrl                   | string                            | false    | undefined                | Make widget redirect to larger chart  |
 | isTransparent                   | boolean                           | false    | false                    | Transparent background for component  |
 | showSymbolLogo                  | boolean                           | false    | true                     | Show logo of symbol                   |

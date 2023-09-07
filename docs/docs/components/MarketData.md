@@ -37,7 +37,7 @@ import { MarketData } from "react-ts-tradingview-widgets";
 | showSymbolLogo | boolean                                   | false    | true                       | Show symbol of ticker                 |
 | colorTheme     | [_**ColorTheme**_](#public-types)         | false    | light                      | Sets the default theme                |
 | isTransparent  | boolean                                   | false    | false                      | Transparent background for component  |
-| locale         | string                                    | false    | en                         | Sets the default locale               |
+| locale         | [Locales](../types/Locales.md)            | false    | en                         | Sets the default locale               |
 | largeChartUrl  | string                                    | false    | undefined                  | Make widget redirect to larger chart  |
 
 ## MarketDataSymbolsGroup properties {#symbol-group}

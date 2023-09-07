@@ -55,7 +55,7 @@ import "../style.css"
 | height              | number/string                           | false    | 400                              | Sets a static height on the component                                                 |
 | autosize            | boolean                                 | false    | false                            | Sets the width and height to 100%                                                     |
 | colorTheme          | [_**ColorTheme**_](#public-types)       | false    | light                            | Sets the default theme                                                                |
-| locale              | string                                  | false    | en                               | Sets the default locale                                                               |
+| locale              | [Locales](../types/Locales.md)          | false    | en                               | Sets the default locale                                                               |
 | gridLineColor       | string                                  | false    | #F0F3FA                          | Grid color                                                                            |
 | fontColor           | string                                  | false    | #787B86                          | Font color                                                                            |
 | fontSize            | string                                  | false    | 10                               | Font size in widget                                                                   |

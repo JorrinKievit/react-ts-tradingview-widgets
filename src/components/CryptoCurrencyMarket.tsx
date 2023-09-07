@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { ColorTheme, CopyrightStyles, Locales } from "../index";
 import Widget from "./Widget";
 
@@ -58,4 +58,4 @@ const CryptoCurrencyMarket: React.FC<CryptoCurrencyMarketProps> = ({
   );
 };
 
-export default CryptoCurrencyMarket;
+export default memo(CryptoCurrencyMarket);

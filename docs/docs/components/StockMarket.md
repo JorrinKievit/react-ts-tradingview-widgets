@@ -39,7 +39,7 @@ import { StockMarket } from "react-ts-tradingview-widgets";
 | dateRange                       | [_**DateRange**_](#public-types)  | false    | 12M                      | Default date range of chart           |
 | exchange                        | string                            | false    | US                       | Default exchange for widget           |
 | showChart                       | boolean                           | false    | true                     | Include chart in widget               |
-| locale                          | string                            | false    | en                       | Sets the default locale               |
+| locale                          | [Locales](../types/Locales.md)    | false    | en                       | Sets the default locale               |
 | largeChartUrl                   | string                            | false    | undefined                | Make widget redirect to larger chart  |
 | isTransparent                   | boolean                           | false    | false                    | Transparent background for component  |
 | showSymbolLogo                  | boolean                           | false    | true                     | Show symbol of ticker                 |

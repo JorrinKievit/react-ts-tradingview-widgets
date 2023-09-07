@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { ColorTheme, CopyrightStyles, Locales } from "../index";
 import Widget from "./Widget";
 
@@ -70,4 +70,4 @@ const TechnicalAnalysis: React.FC<TechnicalAnalysisProps> = ({
   );
 };
 
-export default TechnicalAnalysis;
+export default memo(TechnicalAnalysis);

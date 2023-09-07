@@ -17,6 +17,8 @@ export { TechnicalAnalysis } from "./components";
 export { Ticker } from "./components";
 export { TickerTape } from "./components";
 export { Timeline } from "./components";
+export { StockHeatmap } from "./components";
+export { CryptoCoinsHeatmap } from "./components";
 
 export type { AdvancedRealTimeChartProps } from "./components";
 export type { CompanyProfileProps } from "./components";
@@ -46,6 +48,8 @@ export type { TickerProps, TickerSymbol, TickerSymbols } from "./components";
 export type { TickerTapeProps, TickerTapeSymbol } from "./components";
 export type { TimelineProps } from "./components";
 export type { CopyrightProps } from "./components";
+export type { StockHeatmapProps } from "./components";
+export type { CryptoCoinsHeatmapProps } from "./components";
 
 export type ColorTheme = "light" | "dark";
 
@@ -376,3 +380,48 @@ export type WidgetFeatures =
   | "study_templates"
   | "datasource_copypaste"
   | "seconds_resolution";
+
+export type Exchanges =
+  | "ADX"
+  | "AMEX"
+  | "ASX"
+  | "BER"
+  | "BET"
+  | "BIST"
+  | "BSE"
+  | "BX"
+  | "CSE"
+  | "CSECY"
+  | "DUS"
+  | "EURONEXT"
+  | "FWB"
+  | "GPW"
+  | "HAM"
+  | "HNX"
+  | "IDX"
+  | "JSE"
+  | "KRX"
+  | "KSE"
+  | "LSE"
+  | "MIL"
+  | "MUN"
+  | "NASDAQ"
+  | "NASDAQDUBAI"
+  | "NEO"
+  | "NEWCONNECT"
+  | "NYSE"
+  | "OMXCOP"
+  | "OMXHEX"
+  | "OMXICE"
+  | "OMXRSE"
+  | "OMXSTO"
+  | "OMXTSE"
+  | "OMXVSE"
+  | "OTC"
+  | "SSE"
+  | "TASE"
+  | "TPEX"
+  | "TSX"
+  | "TSXV"
+  | "UPCOM"
+  | "XETR";

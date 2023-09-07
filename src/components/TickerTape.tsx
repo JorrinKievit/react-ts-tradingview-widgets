@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { ColorTheme, CopyrightStyles, DisplayMode, Locales } from "../index";
 // import Copyright from "./Copyright";
 import Widget from "./Widget";
@@ -78,4 +78,4 @@ const TickerTape: React.FC<TickerTapeProps> = ({
   );
 };
 
-export default TickerTape;
+export default memo(TickerTape);

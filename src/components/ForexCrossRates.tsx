@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { ColorTheme, Currencies, CopyrightStyles, Locales } from "../index";
 import Widget from "./Widget";
 
@@ -63,4 +63,4 @@ const ForexCrossRates: React.FC<ForexCrossRatesProps> = ({
   );
 };
 
-export default ForexCrossRates;
+export default memo(ForexCrossRates);

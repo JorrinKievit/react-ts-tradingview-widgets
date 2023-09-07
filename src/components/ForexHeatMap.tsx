@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { ColorTheme, Currencies, CopyrightStyles, Locales } from "../index";
 import Widget from "./Widget";
 
@@ -63,4 +63,4 @@ const ForexHeatMap: React.FC<ForexHeatMapProps> = ({
   );
 };
 
-export default ForexHeatMap;
+export default memo(ForexHeatMap);

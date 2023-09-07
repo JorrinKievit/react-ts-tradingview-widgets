@@ -32,7 +32,7 @@ import { MiniChart } from "react-ts-tradingview-widgets";
 | symbol               | string                            | false    | FX:EURUSD              | Default symbol for widget                 |
 | width                | number/string                     | false    | 350                    | Sets a static width on the component      |
 | height               | number/string                     | false    | 220                    | Sets a static height on the component     |
-| locale               | string                            | false    | en                     | Sets the default locale                   |
+| locale               | [Locales](../types/Locales.md)    | false    | en                     | Sets the default locale                   |
 | dateRange            | [_**DateRange**_](#public-types)  | false    | 12M                    | Default date range of chart               |
 | autosize             | boolean                           | false    | false                  | Sets the width and height to 100%         |
 | colorTheme           | [_**ColorTheme**_](#public-types) | false    | light                  | Sets the default theme                    |

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import {
   ChartType,
   ColorTheme,
@@ -200,4 +200,4 @@ const SymbolOverview: React.FC<SymbolOverviewProps> = ({
   );
 };
 
-export default SymbolOverview;
+export default memo(SymbolOverview);
