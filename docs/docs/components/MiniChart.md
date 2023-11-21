@@ -37,7 +37,7 @@ import { MiniChart } from "react-ts-tradingview-widgets";
 | autosize             | boolean                           | false    | false                  | Sets the width and height to 100%         |
 | colorTheme           | [_**ColorTheme**_](#public-types) | false    | light                  | Sets the default theme                    |
 | trendLineColor       | string                            | false    | rgba(41, 98, 255, 1)   | Sets default color of Price Line          |
-| underlineColor       | string                            | false    | rgba(41, 98, 255, 0.3) | Sets the default color of Under line area |
+| underLineColor       | string                            | false    | rgba(41, 98, 255, 0.3) | Sets the default color of Under line area |
 | underLineBottomColor | string                            | false    | rgba(41, 98, 255, 0)   | Sets under line bottom color              |
 | isTransparent        | boolean                           | false    | false                  | Transparent background for component      |
 | largeChartUrl        | string                            | false    | undefined              | Make widget redirect to larger chart      |
