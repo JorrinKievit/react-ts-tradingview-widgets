@@ -11,7 +11,7 @@ export type EconomicCalendarProps = {
   locale?: Locales;
   importanceFilter?: "-1,0,1" | "0,1";
   currencyFilter?: string;
-
+  countryFilter?: string;
   children?: never;
 
   copyrightStyles?: CopyrightStyles;
