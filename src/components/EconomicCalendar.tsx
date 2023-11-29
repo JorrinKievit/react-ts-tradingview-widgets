@@ -27,6 +27,7 @@ const EconomicCalendar: React.FC<EconomicCalendarProps> = ({
   importanceFilter = "-1,0,1",
   currencyFilter = undefined,
   copyrightStyles,
+  countryFilter,
   ...props
 }) => {
   return (
@@ -39,6 +40,7 @@ const EconomicCalendar: React.FC<EconomicCalendarProps> = ({
         locale,
         importanceFilter,
         currencyFilter,
+        countryFilter,
         ...props,
       }}
       scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-events.js"
