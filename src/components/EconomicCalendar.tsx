@@ -10,7 +10,6 @@ export type EconomicCalendarProps = {
   autosize?: boolean;
   locale?: Locales;
   importanceFilter?: "-1,0,1" | "0,1";
-  currencyFilter?: string;
   countryFilter?: string;
   children?: never;
 
@@ -25,9 +24,8 @@ const EconomicCalendar: React.FC<EconomicCalendarProps> = ({
   autosize = false,
   locale = "en",
   importanceFilter = "-1,0,1",
-  currencyFilter = undefined,
+  countryFilter = undefined,
   copyrightStyles,
-  countryFilter,
   ...props
 }) => {
   return (
@@ -39,7 +37,6 @@ const EconomicCalendar: React.FC<EconomicCalendarProps> = ({
         ...(!autosize ? { height } : { height: "100%" }),
         locale,
         importanceFilter,
-        currencyFilter,
         countryFilter,
         ...props,
       }}
