@@ -1,4 +1,4 @@
-import React, { createRef, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Copyright, { CopyrightProps } from "./Copyright";
 
 interface WidgetProps {
@@ -18,7 +18,7 @@ const Widget: React.FC<WidgetProps> = ({
   type,
   copyrightProps,
 }) => {
-  const ref: { current: HTMLDivElement | null } = createRef();
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let refValue: HTMLDivElement;
@@ -64,15 +64,21 @@ const Widget: React.FC<WidgetProps> = ({
   }, [ref, scriptHTML, type, scriptSRC]);
 
   return (
-    <>
-      <div ref={ref} id={containerId} />
+    <div style={{ display: "contents" }}>
+      {type === "Widget" || type === "MediumWidget" ? (
+        <div id={containerId}>
+          <div ref={ref} style={{ display: "contents" }} />
+        </div>
+      ) : (
+        <div ref={ref} style={{ display: "contents" }} />
+      )}
       <Copyright
         href={copyrightProps.href}
         spanText={copyrightProps.spanText}
         text={copyrightProps.text}
         copyrightStyles={copyrightProps.copyrightStyles}
       />
-    </>
+    </div>
   );
 };
 
