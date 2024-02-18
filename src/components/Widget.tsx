@@ -63,14 +63,16 @@ const Widget: React.FC<WidgetProps> = ({
     };
   }, [ref, scriptHTML, type, scriptSRC]);
 
+  const containerKey = containerId || "tradingview_" + scriptHTML;
+
   return (
     <div style={{ display: "contents" }}>
       {type === "Widget" || type === "MediumWidget" ? (
-        <div id={containerId}>
+        <div id={containerId} key={containerKey}>
           <div ref={ref} style={{ display: "contents" }} />
         </div>
       ) : (
-        <div ref={ref} style={{ display: "contents" }} />
+        <div ref={ref} style={{ display: "contents" }} key={containerKey} />
       )}
       <Copyright
         href={copyrightProps.href}
