@@ -15,6 +15,7 @@ export type MiniChartProps = {
   isTransparent?: boolean;
   autosize?: boolean;
   largeChartUrl?: string;
+  chartOnly?: boolean;
 
   children?: never;
 
@@ -34,6 +35,7 @@ const MiniChart: React.FC<MiniChartProps> = ({
   isTransparent = false,
   autosize = false,
   largeChartUrl = undefined,
+  chartOnly = false,
   copyrightStyles,
   ...props
 }) => {
@@ -52,6 +54,7 @@ const MiniChart: React.FC<MiniChartProps> = ({
         isTransparent,
         autosize,
         largeChartUrl,
+        chartOnly,
         ...props,
       }}
       scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js"

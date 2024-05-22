@@ -41,3 +41,4 @@ import { MiniChart } from "react-ts-tradingview-widgets";
 | underLineBottomColor | string                            | false    | rgba(41, 98, 255, 0)   | Sets under line bottom color              |
 | isTransparent        | boolean                           | false    | false                  | Transparent background for component      |
 | largeChartUrl        | string                            | false    | undefined              | Make widget redirect to larger chart      |
+| chartOnly            | boolean                           | false    | false                  | Show only chart without header            |
