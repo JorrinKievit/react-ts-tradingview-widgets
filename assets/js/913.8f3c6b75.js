@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreact_ts_tradingview_widgets_docs=self.webpackChunkreact_ts_tradingview_widgets_docs||[]).push([[913],{8913:(e,s,t)=>{t.r(s)}}]);
