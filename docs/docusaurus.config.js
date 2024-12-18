@@ -43,19 +43,6 @@ module.exports = {
           ],
         },
         {
-          title: "Community",
-          items: [
-            {
-              label: "Discord - ItsHypnotix#6401",
-              href: "https://discord.com",
-            },
-            {
-              label: "Twitter",
-              href: "https://twitter.com/ItsHypnotix",
-            },
-          ],
-        },
-        {
           title: "More",
           items: [
             {
