@@ -25,7 +25,7 @@ import { Ticker } from "react-ts-tradingview-widgets";
 | ColorTheme   | light / dark                           |
 | TickerSymbol | [_**TickerSymbol[]**_](#ticker-symbol) |
 
-## Ticker roperties
+## Ticker properties
 
 | Property      | Type                                   | Required | Default                    | Description                          |
 | ------------- | -------------------------------------- | -------- | -------------------------- | ------------------------------------ |
