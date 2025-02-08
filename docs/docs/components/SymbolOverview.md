@@ -74,7 +74,7 @@ import "../style.css"
 | timeHoursFormat     | [_**TimeHoursFormat**_](#private-types) | false    | 24-hours                         | Sets the time format                                                                  |
 | hideMarketStatus    | boolean                                 | false    | false                            | Shows market status or not                                                            |
 | hideDateRanges      | boolean                                 | false    | false                            | Hides or shows date ranges                                                            |
-| backGroundColor     | string                                  | false    | rgba(19, 23, 34, 0)              | Sets the background color in the widget                                               |
+| backgroundColor     | string                                  | false    | rgba(19, 23, 34, 0)              | Sets the background color in the widget                                               |
 | widgetFontColor     | string                                  | false    | rgba(216, 216, 216, 1)           | Sets the font color in the widget                                                     |
 | chartType           | [_**ChartType**_](#public-types)        | false    | area                             | Sets the chart type                                                                   |
 | lineColor           | string                                  | false    | #2962FF                          | Sets the line color, chartType **area** only.                                         |

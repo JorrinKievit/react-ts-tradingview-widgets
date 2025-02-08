@@ -74,7 +74,7 @@ export type SymbolOverviewProps = {
   wickDownColor?: string;
 
   //colors
-  backGroundColor?: string;
+  backgroundColor?: string;
   gridLineColor?: string;
   widgetFontColor?: string;
 
@@ -133,7 +133,7 @@ const SymbolOverview: React.FC<SymbolOverviewProps> = ({
   wickUpColor = "#26a69a",
   wickDownColor = "#ef5350",
 
-  backGroundColor = "rgba(19, 23, 34, 0)",
+  backgroundColor = "rgba(19, 23, 34, 0)",
   gridLineColor = "rgba(42, 46, 57, 0)",
   widgetFontColor = "rgba(216, 216, 216, 1)",
 
@@ -182,7 +182,7 @@ const SymbolOverview: React.FC<SymbolOverviewProps> = ({
           wickUpColor,
           wickDownColor,
         }),
-        backGroundColor,
+        backgroundColor,
         widgetFontColor,
         gridLineColor,
         autosize,
