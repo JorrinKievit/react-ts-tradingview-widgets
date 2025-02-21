@@ -52,6 +52,7 @@ export type AdvancedRealTimeChartProps = {
   enabled_features?: WidgetFeatures[];
 
   container_id?: string;
+  backgroundColor?: string;
   children?: never;
 
   copyrightStyles?: CopyrightStyles;
@@ -87,6 +88,7 @@ const AdvancedRealTimeChart: React.FC<AdvancedRealTimeChartProps> = ({
   disabled_features = undefined,
   enabled_features = undefined,
   container_id = `tradingview_${createId(5)}`,
+  backgroundColor = undefined,
 
   copyrightStyles,
 
@@ -124,6 +126,7 @@ const AdvancedRealTimeChart: React.FC<AdvancedRealTimeChartProps> = ({
         studies,
         disabled_features,
         enabled_features,
+        backgroundColor,
         container_id,
         ...props,
       }}
